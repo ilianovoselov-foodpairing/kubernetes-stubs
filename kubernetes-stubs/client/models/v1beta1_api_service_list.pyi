@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1beta1APIServiceList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1beta1APIService]
+    items: typing.List[kubernetes.client.V1beta1APIService]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1beta1APIService],
+        items: typing.List[kubernetes.client.V1beta1APIService],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1beta1APIServiceList:
 
 class V1beta1APIServiceListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1beta1APIServiceDict]
+    items: typing.List[kubernetes.client.V1beta1APIServiceDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

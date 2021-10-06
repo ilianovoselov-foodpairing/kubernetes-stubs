@@ -5,7 +5,7 @@ import kubernetes.client
 
 class V1CustomResourceDefinitionVersion:
     additional_printer_columns: typing.Optional[
-        list[kubernetes.client.V1CustomResourceColumnDefinition]
+        typing.List[kubernetes.client.V1CustomResourceColumnDefinition]
     ]
     name: str
     schema: typing.Optional[kubernetes.client.V1CustomResourceValidation]
@@ -16,7 +16,7 @@ class V1CustomResourceDefinitionVersion:
         self,
         *,
         additional_printer_columns: typing.Optional[
-            list[kubernetes.client.V1CustomResourceColumnDefinition]
+            typing.List[kubernetes.client.V1CustomResourceColumnDefinition]
         ] = ...,
         name: str,
         schema: typing.Optional[kubernetes.client.V1CustomResourceValidation] = ...,
@@ -30,7 +30,7 @@ class V1CustomResourceDefinitionVersion:
 
 class V1CustomResourceDefinitionVersionDict(typing.TypedDict, total=False):
     additionalPrinterColumns: typing.Optional[
-        list[kubernetes.client.V1CustomResourceColumnDefinitionDict]
+        typing.List[kubernetes.client.V1CustomResourceColumnDefinitionDict]
     ]
     name: str
     schema: typing.Optional[kubernetes.client.V1CustomResourceValidationDict]

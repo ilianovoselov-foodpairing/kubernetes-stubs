@@ -5,7 +5,7 @@ import kubernetes.client
 
 class V1beta1CustomResourceDefinitionSpec:
     additional_printer_columns: typing.Optional[
-        list[kubernetes.client.V1beta1CustomResourceColumnDefinition]
+        typing.List[kubernetes.client.V1beta1CustomResourceColumnDefinition]
     ]
     conversion: typing.Optional[kubernetes.client.V1beta1CustomResourceConversion]
     group: str
@@ -16,13 +16,13 @@ class V1beta1CustomResourceDefinitionSpec:
     validation: typing.Optional[kubernetes.client.V1beta1CustomResourceValidation]
     version: typing.Optional[str]
     versions: typing.Optional[
-        list[kubernetes.client.V1beta1CustomResourceDefinitionVersion]
+        typing.List[kubernetes.client.V1beta1CustomResourceDefinitionVersion]
     ]
     def __init__(
         self,
         *,
         additional_printer_columns: typing.Optional[
-            list[kubernetes.client.V1beta1CustomResourceColumnDefinition]
+            typing.List[kubernetes.client.V1beta1CustomResourceColumnDefinition]
         ] = ...,
         conversion: typing.Optional[
             kubernetes.client.V1beta1CustomResourceConversion
@@ -39,14 +39,14 @@ class V1beta1CustomResourceDefinitionSpec:
         ] = ...,
         version: typing.Optional[str] = ...,
         versions: typing.Optional[
-            list[kubernetes.client.V1beta1CustomResourceDefinitionVersion]
+            typing.List[kubernetes.client.V1beta1CustomResourceDefinitionVersion]
         ] = ...
     ) -> None: ...
     def to_dict(self) -> V1beta1CustomResourceDefinitionSpecDict: ...
 
 class V1beta1CustomResourceDefinitionSpecDict(typing.TypedDict, total=False):
     additionalPrinterColumns: typing.Optional[
-        list[kubernetes.client.V1beta1CustomResourceColumnDefinitionDict]
+        typing.List[kubernetes.client.V1beta1CustomResourceColumnDefinitionDict]
     ]
     conversion: typing.Optional[kubernetes.client.V1beta1CustomResourceConversionDict]
     group: str
@@ -59,5 +59,5 @@ class V1beta1CustomResourceDefinitionSpecDict(typing.TypedDict, total=False):
     validation: typing.Optional[kubernetes.client.V1beta1CustomResourceValidationDict]
     version: typing.Optional[str]
     versions: typing.Optional[
-        list[kubernetes.client.V1beta1CustomResourceDefinitionVersionDict]
+        typing.List[kubernetes.client.V1beta1CustomResourceDefinitionVersionDict]
     ]

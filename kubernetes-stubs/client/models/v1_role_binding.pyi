@@ -8,7 +8,7 @@ class V1RoleBinding:
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ObjectMeta]
     role_ref: kubernetes.client.V1RoleRef
-    subjects: typing.Optional[list[kubernetes.client.V1Subject]]
+    subjects: typing.Optional[typing.List[kubernetes.client.V1Subject]]
     def __init__(
         self,
         *,
@@ -16,7 +16,7 @@ class V1RoleBinding:
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ObjectMeta] = ...,
         role_ref: kubernetes.client.V1RoleRef,
-        subjects: typing.Optional[list[kubernetes.client.V1Subject]] = ...
+        subjects: typing.Optional[typing.List[kubernetes.client.V1Subject]] = ...
     ) -> None: ...
     def to_dict(self) -> V1RoleBindingDict: ...
 
@@ -25,4 +25,4 @@ class V1RoleBindingDict(typing.TypedDict, total=False):
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ObjectMetaDict]
     roleRef: kubernetes.client.V1RoleRefDict
-    subjects: typing.Optional[list[kubernetes.client.V1SubjectDict]]
+    subjects: typing.Optional[typing.List[kubernetes.client.V1SubjectDict]]

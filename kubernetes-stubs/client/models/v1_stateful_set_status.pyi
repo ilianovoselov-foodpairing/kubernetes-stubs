@@ -5,7 +5,7 @@ import kubernetes.client
 
 class V1StatefulSetStatus:
     collision_count: typing.Optional[int]
-    conditions: typing.Optional[list[kubernetes.client.V1StatefulSetCondition]]
+    conditions: typing.Optional[typing.List[kubernetes.client.V1StatefulSetCondition]]
     current_replicas: typing.Optional[int]
     current_revision: typing.Optional[str]
     observed_generation: typing.Optional[int]
@@ -18,7 +18,7 @@ class V1StatefulSetStatus:
         *,
         collision_count: typing.Optional[int] = ...,
         conditions: typing.Optional[
-            list[kubernetes.client.V1StatefulSetCondition]
+            typing.List[kubernetes.client.V1StatefulSetCondition]
         ] = ...,
         current_replicas: typing.Optional[int] = ...,
         current_revision: typing.Optional[str] = ...,
@@ -32,7 +32,9 @@ class V1StatefulSetStatus:
 
 class V1StatefulSetStatusDict(typing.TypedDict, total=False):
     collisionCount: typing.Optional[int]
-    conditions: typing.Optional[list[kubernetes.client.V1StatefulSetConditionDict]]
+    conditions: typing.Optional[
+        typing.List[kubernetes.client.V1StatefulSetConditionDict]
+    ]
     currentReplicas: typing.Optional[int]
     currentRevision: typing.Optional[str]
     observedGeneration: typing.Optional[int]

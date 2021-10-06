@@ -5,7 +5,7 @@ import kubernetes.client
 
 class V1HTTPGetAction:
     host: typing.Optional[str]
-    http_headers: typing.Optional[list[kubernetes.client.V1HTTPHeader]]
+    http_headers: typing.Optional[typing.List[kubernetes.client.V1HTTPHeader]]
     path: typing.Optional[str]
     port: typing.Any
     scheme: typing.Optional[str]
@@ -13,7 +13,9 @@ class V1HTTPGetAction:
         self,
         *,
         host: typing.Optional[str] = ...,
-        http_headers: typing.Optional[list[kubernetes.client.V1HTTPHeader]] = ...,
+        http_headers: typing.Optional[
+            typing.List[kubernetes.client.V1HTTPHeader]
+        ] = ...,
         path: typing.Optional[str] = ...,
         port: typing.Any,
         scheme: typing.Optional[str] = ...
@@ -22,7 +24,7 @@ class V1HTTPGetAction:
 
 class V1HTTPGetActionDict(typing.TypedDict, total=False):
     host: typing.Optional[str]
-    httpHeaders: typing.Optional[list[kubernetes.client.V1HTTPHeaderDict]]
+    httpHeaders: typing.Optional[typing.List[kubernetes.client.V1HTTPHeaderDict]]
     path: typing.Optional[str]
     port: typing.Any
     scheme: typing.Optional[str]

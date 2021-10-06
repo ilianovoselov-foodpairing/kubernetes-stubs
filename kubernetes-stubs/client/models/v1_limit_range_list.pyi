@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1LimitRangeList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1LimitRange]
+    items: typing.List[kubernetes.client.V1LimitRange]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1LimitRange],
+        items: typing.List[kubernetes.client.V1LimitRange],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1LimitRangeList:
 
 class V1LimitRangeListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1LimitRangeDict]
+    items: typing.List[kubernetes.client.V1LimitRangeDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

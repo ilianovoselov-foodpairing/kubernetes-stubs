@@ -11,7 +11,7 @@ class V1CSIPersistentVolumeSource:
     node_publish_secret_ref: typing.Optional[kubernetes.client.V1SecretReference]
     node_stage_secret_ref: typing.Optional[kubernetes.client.V1SecretReference]
     read_only: typing.Optional[bool]
-    volume_attributes: typing.Optional[dict[str, str]]
+    volume_attributes: typing.Optional[typing.Dict[str, str]]
     volume_handle: str
     def __init__(
         self,
@@ -31,7 +31,7 @@ class V1CSIPersistentVolumeSource:
             kubernetes.client.V1SecretReference
         ] = ...,
         read_only: typing.Optional[bool] = ...,
-        volume_attributes: typing.Optional[dict[str, str]] = ...,
+        volume_attributes: typing.Optional[typing.Dict[str, str]] = ...,
         volume_handle: str
     ) -> None: ...
     def to_dict(self) -> V1CSIPersistentVolumeSourceDict: ...
@@ -44,5 +44,5 @@ class V1CSIPersistentVolumeSourceDict(typing.TypedDict, total=False):
     nodePublishSecretRef: typing.Optional[kubernetes.client.V1SecretReferenceDict]
     nodeStageSecretRef: typing.Optional[kubernetes.client.V1SecretReferenceDict]
     readOnly: typing.Optional[bool]
-    volumeAttributes: typing.Optional[dict[str, str]]
+    volumeAttributes: typing.Optional[typing.Dict[str, str]]
     volumeHandle: str

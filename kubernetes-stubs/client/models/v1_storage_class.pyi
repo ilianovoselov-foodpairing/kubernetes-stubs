@@ -5,12 +5,14 @@ import kubernetes.client
 
 class V1StorageClass:
     allow_volume_expansion: typing.Optional[bool]
-    allowed_topologies: typing.Optional[list[kubernetes.client.V1TopologySelectorTerm]]
+    allowed_topologies: typing.Optional[
+        typing.List[kubernetes.client.V1TopologySelectorTerm]
+    ]
     api_version: typing.Optional[str]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ObjectMeta]
-    mount_options: typing.Optional[list[str]]
-    parameters: typing.Optional[dict[str, str]]
+    mount_options: typing.Optional[typing.List[str]]
+    parameters: typing.Optional[typing.Dict[str, str]]
     provisioner: str
     reclaim_policy: typing.Optional[str]
     volume_binding_mode: typing.Optional[str]
@@ -19,13 +21,13 @@ class V1StorageClass:
         *,
         allow_volume_expansion: typing.Optional[bool] = ...,
         allowed_topologies: typing.Optional[
-            list[kubernetes.client.V1TopologySelectorTerm]
+            typing.List[kubernetes.client.V1TopologySelectorTerm]
         ] = ...,
         api_version: typing.Optional[str] = ...,
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ObjectMeta] = ...,
-        mount_options: typing.Optional[list[str]] = ...,
-        parameters: typing.Optional[dict[str, str]] = ...,
+        mount_options: typing.Optional[typing.List[str]] = ...,
+        parameters: typing.Optional[typing.Dict[str, str]] = ...,
         provisioner: str,
         reclaim_policy: typing.Optional[str] = ...,
         volume_binding_mode: typing.Optional[str] = ...
@@ -35,13 +37,13 @@ class V1StorageClass:
 class V1StorageClassDict(typing.TypedDict, total=False):
     allowVolumeExpansion: typing.Optional[bool]
     allowedTopologies: typing.Optional[
-        list[kubernetes.client.V1TopologySelectorTermDict]
+        typing.List[kubernetes.client.V1TopologySelectorTermDict]
     ]
     apiVersion: typing.Optional[str]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ObjectMetaDict]
-    mountOptions: typing.Optional[list[str]]
-    parameters: typing.Optional[dict[str, str]]
+    mountOptions: typing.Optional[typing.List[str]]
+    parameters: typing.Optional[typing.Dict[str, str]]
     provisioner: str
     reclaimPolicy: typing.Optional[str]
     volumeBindingMode: typing.Optional[str]

@@ -71,7 +71,7 @@ def make_type_name(
                 item_ty = make_type_name(
                     config["items"], is_optional=False, use_dict=use_dict
                 )
-                return f"list[{item_ty}]"
+                return f"typing.List[{item_ty}]"
             elif ty == "object":
                 if "additionalProperties" in config:
                     val_ty = make_type_name(
@@ -79,7 +79,7 @@ def make_type_name(
                         is_optional=False,
                         use_dict=use_dict,
                     )
-                    return f"dict[str, {val_ty}]"
+                    return f"typing.Dict[str, {val_ty}]"
                 else:
                     return "typing.Any"
             else:

@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1beta1IngressClassList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1beta1IngressClass]
+    items: typing.List[kubernetes.client.V1beta1IngressClass]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1beta1IngressClass],
+        items: typing.List[kubernetes.client.V1beta1IngressClass],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1beta1IngressClassList:
 
 class V1beta1IngressClassListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1beta1IngressClassDict]
+    items: typing.List[kubernetes.client.V1beta1IngressClassDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

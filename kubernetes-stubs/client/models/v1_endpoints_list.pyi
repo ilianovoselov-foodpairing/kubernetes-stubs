@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1EndpointsList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1Endpoints]
+    items: typing.List[kubernetes.client.V1Endpoints]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1Endpoints],
+        items: typing.List[kubernetes.client.V1Endpoints],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1EndpointsList:
 
 class V1EndpointsListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1EndpointsDict]
+    items: typing.List[kubernetes.client.V1EndpointsDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

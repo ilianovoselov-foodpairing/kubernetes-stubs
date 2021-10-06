@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1beta1CronJobList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1beta1CronJob]
+    items: typing.List[kubernetes.client.V1beta1CronJob]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1beta1CronJob],
+        items: typing.List[kubernetes.client.V1beta1CronJob],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1beta1CronJobList:
 
 class V1beta1CronJobListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1beta1CronJobDict]
+    items: typing.List[kubernetes.client.V1beta1CronJobDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

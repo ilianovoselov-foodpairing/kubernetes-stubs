@@ -7,16 +7,16 @@ class V1FCVolumeSource:
     fs_type: typing.Optional[str]
     lun: typing.Optional[int]
     read_only: typing.Optional[bool]
-    target_ww_ns: typing.Optional[list[str]]
-    wwids: typing.Optional[list[str]]
+    target_ww_ns: typing.Optional[typing.List[str]]
+    wwids: typing.Optional[typing.List[str]]
     def __init__(
         self,
         *,
         fs_type: typing.Optional[str] = ...,
         lun: typing.Optional[int] = ...,
         read_only: typing.Optional[bool] = ...,
-        target_ww_ns: typing.Optional[list[str]] = ...,
-        wwids: typing.Optional[list[str]] = ...
+        target_ww_ns: typing.Optional[typing.List[str]] = ...,
+        wwids: typing.Optional[typing.List[str]] = ...
     ) -> None: ...
     def to_dict(self) -> V1FCVolumeSourceDict: ...
 
@@ -24,5 +24,5 @@ class V1FCVolumeSourceDict(typing.TypedDict, total=False):
     fsType: typing.Optional[str]
     lun: typing.Optional[int]
     readOnly: typing.Optional[bool]
-    targetWWNs: typing.Optional[list[str]]
-    wwids: typing.Optional[list[str]]
+    targetWWNs: typing.Optional[typing.List[str]]
+    wwids: typing.Optional[typing.List[str]]

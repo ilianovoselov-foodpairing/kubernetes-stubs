@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1alpha1AuditSinkList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1alpha1AuditSink]
+    items: typing.List[kubernetes.client.V1alpha1AuditSink]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1alpha1AuditSink],
+        items: typing.List[kubernetes.client.V1alpha1AuditSink],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1alpha1AuditSinkList:
 
 class V1alpha1AuditSinkListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1alpha1AuditSinkDict]
+    items: typing.List[kubernetes.client.V1alpha1AuditSinkDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

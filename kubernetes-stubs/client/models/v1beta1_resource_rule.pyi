@@ -4,22 +4,22 @@ import typing
 import kubernetes.client
 
 class V1beta1ResourceRule:
-    api_groups: typing.Optional[list[str]]
-    resource_names: typing.Optional[list[str]]
-    resources: typing.Optional[list[str]]
-    verbs: list[str]
+    api_groups: typing.Optional[typing.List[str]]
+    resource_names: typing.Optional[typing.List[str]]
+    resources: typing.Optional[typing.List[str]]
+    verbs: typing.List[str]
     def __init__(
         self,
         *,
-        api_groups: typing.Optional[list[str]] = ...,
-        resource_names: typing.Optional[list[str]] = ...,
-        resources: typing.Optional[list[str]] = ...,
-        verbs: list[str]
+        api_groups: typing.Optional[typing.List[str]] = ...,
+        resource_names: typing.Optional[typing.List[str]] = ...,
+        resources: typing.Optional[typing.List[str]] = ...,
+        verbs: typing.List[str]
     ) -> None: ...
     def to_dict(self) -> V1beta1ResourceRuleDict: ...
 
 class V1beta1ResourceRuleDict(typing.TypedDict, total=False):
-    apiGroups: typing.Optional[list[str]]
-    resourceNames: typing.Optional[list[str]]
-    resources: typing.Optional[list[str]]
-    verbs: list[str]
+    apiGroups: typing.Optional[typing.List[str]]
+    resourceNames: typing.Optional[typing.List[str]]
+    resources: typing.Optional[typing.List[str]]
+    verbs: typing.List[str]

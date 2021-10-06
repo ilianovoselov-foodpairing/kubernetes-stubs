@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1NetworkPolicyList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1NetworkPolicy]
+    items: typing.List[kubernetes.client.V1NetworkPolicy]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1NetworkPolicy],
+        items: typing.List[kubernetes.client.V1NetworkPolicy],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1NetworkPolicyList:
 
 class V1NetworkPolicyListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1NetworkPolicyDict]
+    items: typing.List[kubernetes.client.V1NetworkPolicyDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

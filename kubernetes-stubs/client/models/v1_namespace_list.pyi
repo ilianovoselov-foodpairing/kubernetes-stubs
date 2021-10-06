@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1NamespaceList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1Namespace]
+    items: typing.List[kubernetes.client.V1Namespace]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1Namespace],
+        items: typing.List[kubernetes.client.V1Namespace],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1NamespaceList:
 
 class V1NamespaceListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1NamespaceDict]
+    items: typing.List[kubernetes.client.V1NamespaceDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

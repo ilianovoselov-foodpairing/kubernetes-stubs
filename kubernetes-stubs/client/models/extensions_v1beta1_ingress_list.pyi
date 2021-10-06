@@ -5,14 +5,14 @@ import kubernetes.client
 
 class ExtensionsV1beta1IngressList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.ExtensionsV1beta1Ingress]
+    items: typing.List[kubernetes.client.ExtensionsV1beta1Ingress]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.ExtensionsV1beta1Ingress],
+        items: typing.List[kubernetes.client.ExtensionsV1beta1Ingress],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class ExtensionsV1beta1IngressList:
 
 class ExtensionsV1beta1IngressListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.ExtensionsV1beta1IngressDict]
+    items: typing.List[kubernetes.client.ExtensionsV1beta1IngressDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

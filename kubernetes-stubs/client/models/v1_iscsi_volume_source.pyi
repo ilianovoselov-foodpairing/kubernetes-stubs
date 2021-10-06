@@ -11,7 +11,7 @@ class V1ISCSIVolumeSource:
     iqn: str
     iscsi_interface: typing.Optional[str]
     lun: int
-    portals: typing.Optional[list[str]]
+    portals: typing.Optional[typing.List[str]]
     read_only: typing.Optional[bool]
     secret_ref: typing.Optional[kubernetes.client.V1LocalObjectReference]
     target_portal: str
@@ -25,7 +25,7 @@ class V1ISCSIVolumeSource:
         iqn: str,
         iscsi_interface: typing.Optional[str] = ...,
         lun: int,
-        portals: typing.Optional[list[str]] = ...,
+        portals: typing.Optional[typing.List[str]] = ...,
         read_only: typing.Optional[bool] = ...,
         secret_ref: typing.Optional[kubernetes.client.V1LocalObjectReference] = ...,
         target_portal: str
@@ -40,7 +40,7 @@ class V1ISCSIVolumeSourceDict(typing.TypedDict, total=False):
     iqn: str
     iscsiInterface: typing.Optional[str]
     lun: int
-    portals: typing.Optional[list[str]]
+    portals: typing.Optional[typing.List[str]]
     readOnly: typing.Optional[bool]
     secretRef: typing.Optional[kubernetes.client.V1LocalObjectReferenceDict]
     targetPortal: str

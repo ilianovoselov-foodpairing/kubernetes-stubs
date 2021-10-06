@@ -8,13 +8,15 @@ class V1beta1JSONSchemaProps:
     schema: typing.Optional[str]
     additional_items: typing.Optional[typing.Any]
     additional_properties: typing.Optional[typing.Any]
-    all_of: typing.Optional[list[kubernetes.client.V1beta1JSONSchemaProps]]
-    any_of: typing.Optional[list[kubernetes.client.V1beta1JSONSchemaProps]]
+    all_of: typing.Optional[typing.List[kubernetes.client.V1beta1JSONSchemaProps]]
+    any_of: typing.Optional[typing.List[kubernetes.client.V1beta1JSONSchemaProps]]
     default: typing.Optional[typing.Any]
-    definitions: typing.Optional[dict[str, kubernetes.client.V1beta1JSONSchemaProps]]
-    dependencies: typing.Optional[dict[str, typing.Any]]
+    definitions: typing.Optional[
+        typing.Dict[str, kubernetes.client.V1beta1JSONSchemaProps]
+    ]
+    dependencies: typing.Optional[typing.Dict[str, typing.Any]]
     description: typing.Optional[str]
-    enum: typing.Optional[list[typing.Any]]
+    enum: typing.Optional[typing.List[typing.Any]]
     example: typing.Optional[typing.Any]
     exclusive_maximum: typing.Optional[bool]
     exclusive_minimum: typing.Optional[bool]
@@ -33,19 +35,21 @@ class V1beta1JSONSchemaProps:
     multiple_of: typing.Optional[float]
     _not: typing.Optional[kubernetes.client.V1beta1JSONSchemaProps]
     nullable: typing.Optional[bool]
-    one_of: typing.Optional[list[kubernetes.client.V1beta1JSONSchemaProps]]
+    one_of: typing.Optional[typing.List[kubernetes.client.V1beta1JSONSchemaProps]]
     pattern: typing.Optional[str]
     pattern_properties: typing.Optional[
-        dict[str, kubernetes.client.V1beta1JSONSchemaProps]
+        typing.Dict[str, kubernetes.client.V1beta1JSONSchemaProps]
     ]
-    properties: typing.Optional[dict[str, kubernetes.client.V1beta1JSONSchemaProps]]
-    required: typing.Optional[list[str]]
+    properties: typing.Optional[
+        typing.Dict[str, kubernetes.client.V1beta1JSONSchemaProps]
+    ]
+    required: typing.Optional[typing.List[str]]
     title: typing.Optional[str]
     type: typing.Optional[str]
     unique_items: typing.Optional[bool]
     x_kubernetes_embedded_resource: typing.Optional[bool]
     x_kubernetes_int_or_string: typing.Optional[bool]
-    x_kubernetes_list_map_keys: typing.Optional[list[str]]
+    x_kubernetes_list_map_keys: typing.Optional[typing.List[str]]
     x_kubernetes_list_type: typing.Optional[str]
     x_kubernetes_map_type: typing.Optional[str]
     x_kubernetes_preserve_unknown_fields: typing.Optional[bool]
@@ -56,15 +60,19 @@ class V1beta1JSONSchemaProps:
         schema: typing.Optional[str] = ...,
         additional_items: typing.Optional[typing.Any] = ...,
         additional_properties: typing.Optional[typing.Any] = ...,
-        all_of: typing.Optional[list[kubernetes.client.V1beta1JSONSchemaProps]] = ...,
-        any_of: typing.Optional[list[kubernetes.client.V1beta1JSONSchemaProps]] = ...,
+        all_of: typing.Optional[
+            typing.List[kubernetes.client.V1beta1JSONSchemaProps]
+        ] = ...,
+        any_of: typing.Optional[
+            typing.List[kubernetes.client.V1beta1JSONSchemaProps]
+        ] = ...,
         default: typing.Optional[typing.Any] = ...,
         definitions: typing.Optional[
-            dict[str, kubernetes.client.V1beta1JSONSchemaProps]
+            typing.Dict[str, kubernetes.client.V1beta1JSONSchemaProps]
         ] = ...,
-        dependencies: typing.Optional[dict[str, typing.Any]] = ...,
+        dependencies: typing.Optional[typing.Dict[str, typing.Any]] = ...,
         description: typing.Optional[str] = ...,
-        enum: typing.Optional[list[typing.Any]] = ...,
+        enum: typing.Optional[typing.List[typing.Any]] = ...,
         example: typing.Optional[typing.Any] = ...,
         exclusive_maximum: typing.Optional[bool] = ...,
         exclusive_minimum: typing.Optional[bool] = ...,
@@ -85,21 +93,23 @@ class V1beta1JSONSchemaProps:
         multiple_of: typing.Optional[float] = ...,
         _not: typing.Optional[kubernetes.client.V1beta1JSONSchemaProps] = ...,
         nullable: typing.Optional[bool] = ...,
-        one_of: typing.Optional[list[kubernetes.client.V1beta1JSONSchemaProps]] = ...,
+        one_of: typing.Optional[
+            typing.List[kubernetes.client.V1beta1JSONSchemaProps]
+        ] = ...,
         pattern: typing.Optional[str] = ...,
         pattern_properties: typing.Optional[
-            dict[str, kubernetes.client.V1beta1JSONSchemaProps]
+            typing.Dict[str, kubernetes.client.V1beta1JSONSchemaProps]
         ] = ...,
         properties: typing.Optional[
-            dict[str, kubernetes.client.V1beta1JSONSchemaProps]
+            typing.Dict[str, kubernetes.client.V1beta1JSONSchemaProps]
         ] = ...,
-        required: typing.Optional[list[str]] = ...,
+        required: typing.Optional[typing.List[str]] = ...,
         title: typing.Optional[str] = ...,
         type: typing.Optional[str] = ...,
         unique_items: typing.Optional[bool] = ...,
         x_kubernetes_embedded_resource: typing.Optional[bool] = ...,
         x_kubernetes_int_or_string: typing.Optional[bool] = ...,
-        x_kubernetes_list_map_keys: typing.Optional[list[str]] = ...,
+        x_kubernetes_list_map_keys: typing.Optional[typing.List[str]] = ...,
         x_kubernetes_list_type: typing.Optional[str] = ...,
         x_kubernetes_map_type: typing.Optional[str] = ...,
         x_kubernetes_preserve_unknown_fields: typing.Optional[bool] = ...
@@ -111,15 +121,15 @@ class V1beta1JSONSchemaPropsDict(typing.TypedDict, total=False):
     schema: typing.Optional[str]
     additionalItems: typing.Optional[typing.Any]
     additionalProperties: typing.Optional[typing.Any]
-    allOf: typing.Optional[list[kubernetes.client.V1beta1JSONSchemaPropsDict]]
-    anyOf: typing.Optional[list[kubernetes.client.V1beta1JSONSchemaPropsDict]]
+    allOf: typing.Optional[typing.List[kubernetes.client.V1beta1JSONSchemaPropsDict]]
+    anyOf: typing.Optional[typing.List[kubernetes.client.V1beta1JSONSchemaPropsDict]]
     default: typing.Optional[typing.Any]
     definitions: typing.Optional[
-        dict[str, kubernetes.client.V1beta1JSONSchemaPropsDict]
+        typing.Dict[str, kubernetes.client.V1beta1JSONSchemaPropsDict]
     ]
-    dependencies: typing.Optional[dict[str, typing.Any]]
+    dependencies: typing.Optional[typing.Dict[str, typing.Any]]
     description: typing.Optional[str]
-    enum: typing.Optional[list[typing.Any]]
+    enum: typing.Optional[typing.List[typing.Any]]
     example: typing.Optional[typing.Any]
     exclusiveMaximum: typing.Optional[bool]
     exclusiveMinimum: typing.Optional[bool]
@@ -138,19 +148,21 @@ class V1beta1JSONSchemaPropsDict(typing.TypedDict, total=False):
     multipleOf: typing.Optional[float]
     _not: typing.Optional[kubernetes.client.V1beta1JSONSchemaPropsDict]
     nullable: typing.Optional[bool]
-    oneOf: typing.Optional[list[kubernetes.client.V1beta1JSONSchemaPropsDict]]
+    oneOf: typing.Optional[typing.List[kubernetes.client.V1beta1JSONSchemaPropsDict]]
     pattern: typing.Optional[str]
     patternProperties: typing.Optional[
-        dict[str, kubernetes.client.V1beta1JSONSchemaPropsDict]
+        typing.Dict[str, kubernetes.client.V1beta1JSONSchemaPropsDict]
     ]
-    properties: typing.Optional[dict[str, kubernetes.client.V1beta1JSONSchemaPropsDict]]
-    required: typing.Optional[list[str]]
+    properties: typing.Optional[
+        typing.Dict[str, kubernetes.client.V1beta1JSONSchemaPropsDict]
+    ]
+    required: typing.Optional[typing.List[str]]
     title: typing.Optional[str]
     type: typing.Optional[str]
     uniqueItems: typing.Optional[bool]
     x_kubernetes_embedded_resource: typing.Optional[bool]
     x_kubernetes_int_or_string: typing.Optional[bool]
-    x_kubernetes_list_map_keys: typing.Optional[list[str]]
+    x_kubernetes_list_map_keys: typing.Optional[typing.List[str]]
     x_kubernetes_list_type: typing.Optional[str]
     x_kubernetes_map_type: typing.Optional[str]
     x_kubernetes_preserve_unknown_fields: typing.Optional[bool]

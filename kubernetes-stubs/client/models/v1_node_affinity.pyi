@@ -5,7 +5,7 @@ import kubernetes.client
 
 class V1NodeAffinity:
     preferred_during_scheduling_ignored_during_execution: typing.Optional[
-        list[kubernetes.client.V1PreferredSchedulingTerm]
+        typing.List[kubernetes.client.V1PreferredSchedulingTerm]
     ]
     required_during_scheduling_ignored_during_execution: typing.Optional[
         kubernetes.client.V1NodeSelector
@@ -14,7 +14,7 @@ class V1NodeAffinity:
         self,
         *,
         preferred_during_scheduling_ignored_during_execution: typing.Optional[
-            list[kubernetes.client.V1PreferredSchedulingTerm]
+            typing.List[kubernetes.client.V1PreferredSchedulingTerm]
         ] = ...,
         required_during_scheduling_ignored_during_execution: typing.Optional[
             kubernetes.client.V1NodeSelector
@@ -24,7 +24,7 @@ class V1NodeAffinity:
 
 class V1NodeAffinityDict(typing.TypedDict, total=False):
     preferredDuringSchedulingIgnoredDuringExecution: typing.Optional[
-        list[kubernetes.client.V1PreferredSchedulingTermDict]
+        typing.List[kubernetes.client.V1PreferredSchedulingTermDict]
     ]
     requiredDuringSchedulingIgnoredDuringExecution: typing.Optional[
         kubernetes.client.V1NodeSelectorDict

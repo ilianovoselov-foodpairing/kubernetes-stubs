@@ -4,8 +4,8 @@ import typing
 import kubernetes.client
 
 class V1SubjectAccessReviewSpec:
-    extra: typing.Optional[dict[str, list[str]]]
-    groups: typing.Optional[list[str]]
+    extra: typing.Optional[typing.Dict[str, typing.List[str]]]
+    groups: typing.Optional[typing.List[str]]
     non_resource_attributes: typing.Optional[kubernetes.client.V1NonResourceAttributes]
     resource_attributes: typing.Optional[kubernetes.client.V1ResourceAttributes]
     uid: typing.Optional[str]
@@ -13,8 +13,8 @@ class V1SubjectAccessReviewSpec:
     def __init__(
         self,
         *,
-        extra: typing.Optional[dict[str, list[str]]] = ...,
-        groups: typing.Optional[list[str]] = ...,
+        extra: typing.Optional[typing.Dict[str, typing.List[str]]] = ...,
+        groups: typing.Optional[typing.List[str]] = ...,
         non_resource_attributes: typing.Optional[
             kubernetes.client.V1NonResourceAttributes
         ] = ...,
@@ -27,8 +27,8 @@ class V1SubjectAccessReviewSpec:
     def to_dict(self) -> V1SubjectAccessReviewSpecDict: ...
 
 class V1SubjectAccessReviewSpecDict(typing.TypedDict, total=False):
-    extra: typing.Optional[dict[str, list[str]]]
-    groups: typing.Optional[list[str]]
+    extra: typing.Optional[typing.Dict[str, typing.List[str]]]
+    groups: typing.Optional[typing.List[str]]
     nonResourceAttributes: typing.Optional[
         kubernetes.client.V1NonResourceAttributesDict
     ]

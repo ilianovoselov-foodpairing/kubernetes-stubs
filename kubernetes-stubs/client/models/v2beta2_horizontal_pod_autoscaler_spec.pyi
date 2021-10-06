@@ -6,7 +6,7 @@ import kubernetes.client
 class V2beta2HorizontalPodAutoscalerSpec:
     behavior: typing.Optional[kubernetes.client.V2beta2HorizontalPodAutoscalerBehavior]
     max_replicas: int
-    metrics: typing.Optional[list[kubernetes.client.V2beta2MetricSpec]]
+    metrics: typing.Optional[typing.List[kubernetes.client.V2beta2MetricSpec]]
     min_replicas: typing.Optional[int]
     scale_target_ref: kubernetes.client.V2beta2CrossVersionObjectReference
     def __init__(
@@ -16,7 +16,9 @@ class V2beta2HorizontalPodAutoscalerSpec:
             kubernetes.client.V2beta2HorizontalPodAutoscalerBehavior
         ] = ...,
         max_replicas: int,
-        metrics: typing.Optional[list[kubernetes.client.V2beta2MetricSpec]] = ...,
+        metrics: typing.Optional[
+            typing.List[kubernetes.client.V2beta2MetricSpec]
+        ] = ...,
         min_replicas: typing.Optional[int] = ...,
         scale_target_ref: kubernetes.client.V2beta2CrossVersionObjectReference
     ) -> None: ...
@@ -27,6 +29,6 @@ class V2beta2HorizontalPodAutoscalerSpecDict(typing.TypedDict, total=False):
         kubernetes.client.V2beta2HorizontalPodAutoscalerBehaviorDict
     ]
     maxReplicas: int
-    metrics: typing.Optional[list[kubernetes.client.V2beta2MetricSpecDict]]
+    metrics: typing.Optional[typing.List[kubernetes.client.V2beta2MetricSpecDict]]
     minReplicas: typing.Optional[int]
     scaleTargetRef: kubernetes.client.V2beta2CrossVersionObjectReferenceDict

@@ -12,7 +12,7 @@ class V1StatefulSetSpec:
     template: kubernetes.client.V1PodTemplateSpec
     update_strategy: typing.Optional[kubernetes.client.V1StatefulSetUpdateStrategy]
     volume_claim_templates: typing.Optional[
-        list[kubernetes.client.V1PersistentVolumeClaim]
+        typing.List[kubernetes.client.V1PersistentVolumeClaim]
     ]
     def __init__(
         self,
@@ -27,7 +27,7 @@ class V1StatefulSetSpec:
             kubernetes.client.V1StatefulSetUpdateStrategy
         ] = ...,
         volume_claim_templates: typing.Optional[
-            list[kubernetes.client.V1PersistentVolumeClaim]
+            typing.List[kubernetes.client.V1PersistentVolumeClaim]
         ] = ...
     ) -> None: ...
     def to_dict(self) -> V1StatefulSetSpecDict: ...
@@ -41,5 +41,5 @@ class V1StatefulSetSpecDict(typing.TypedDict, total=False):
     template: kubernetes.client.V1PodTemplateSpecDict
     updateStrategy: typing.Optional[kubernetes.client.V1StatefulSetUpdateStrategyDict]
     volumeClaimTemplates: typing.Optional[
-        list[kubernetes.client.V1PersistentVolumeClaimDict]
+        typing.List[kubernetes.client.V1PersistentVolumeClaimDict]
     ]

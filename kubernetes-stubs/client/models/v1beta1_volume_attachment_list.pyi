@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1beta1VolumeAttachmentList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1beta1VolumeAttachment]
+    items: typing.List[kubernetes.client.V1beta1VolumeAttachment]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1beta1VolumeAttachment],
+        items: typing.List[kubernetes.client.V1beta1VolumeAttachment],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1beta1VolumeAttachmentList:
 
 class V1beta1VolumeAttachmentListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1beta1VolumeAttachmentDict]
+    items: typing.List[kubernetes.client.V1beta1VolumeAttachmentDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

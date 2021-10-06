@@ -5,14 +5,14 @@ import kubernetes.client
 
 class V1ReplicaSetList:
     api_version: typing.Optional[str]
-    items: list[kubernetes.client.V1ReplicaSet]
+    items: typing.List[kubernetes.client.V1ReplicaSet]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: list[kubernetes.client.V1ReplicaSet],
+        items: typing.List[kubernetes.client.V1ReplicaSet],
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
     ) -> None: ...
@@ -20,6 +20,6 @@ class V1ReplicaSetList:
 
 class V1ReplicaSetListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: list[kubernetes.client.V1ReplicaSetDict]
+    items: typing.List[kubernetes.client.V1ReplicaSetDict]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ListMetaDict]

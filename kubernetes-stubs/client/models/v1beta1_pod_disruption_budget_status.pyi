@@ -6,7 +6,7 @@ import kubernetes.client
 class V1beta1PodDisruptionBudgetStatus:
     current_healthy: int
     desired_healthy: int
-    disrupted_pods: typing.Optional[dict[str, datetime.datetime]]
+    disrupted_pods: typing.Optional[typing.Dict[str, datetime.datetime]]
     disruptions_allowed: int
     expected_pods: int
     observed_generation: typing.Optional[int]
@@ -15,7 +15,7 @@ class V1beta1PodDisruptionBudgetStatus:
         *,
         current_healthy: int,
         desired_healthy: int,
-        disrupted_pods: typing.Optional[dict[str, datetime.datetime]] = ...,
+        disrupted_pods: typing.Optional[typing.Dict[str, datetime.datetime]] = ...,
         disruptions_allowed: int,
         expected_pods: int,
         observed_generation: typing.Optional[int] = ...
@@ -25,7 +25,7 @@ class V1beta1PodDisruptionBudgetStatus:
 class V1beta1PodDisruptionBudgetStatusDict(typing.TypedDict, total=False):
     currentHealthy: int
     desiredHealthy: int
-    disruptedPods: typing.Optional[dict[str, datetime.datetime]]
+    disruptedPods: typing.Optional[typing.Dict[str, datetime.datetime]]
     disruptionsAllowed: int
     expectedPods: int
     observedGeneration: typing.Optional[int]

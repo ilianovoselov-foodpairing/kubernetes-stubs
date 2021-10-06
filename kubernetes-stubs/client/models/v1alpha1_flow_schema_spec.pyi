@@ -9,7 +9,9 @@ class V1alpha1FlowSchemaSpec:
     ]
     matching_precedence: typing.Optional[int]
     priority_level_configuration: kubernetes.client.V1alpha1PriorityLevelConfigurationReference
-    rules: typing.Optional[list[kubernetes.client.V1alpha1PolicyRulesWithSubjects]]
+    rules: typing.Optional[
+        typing.List[kubernetes.client.V1alpha1PolicyRulesWithSubjects]
+    ]
     def __init__(
         self,
         *,
@@ -19,7 +21,7 @@ class V1alpha1FlowSchemaSpec:
         matching_precedence: typing.Optional[int] = ...,
         priority_level_configuration: kubernetes.client.V1alpha1PriorityLevelConfigurationReference,
         rules: typing.Optional[
-            list[kubernetes.client.V1alpha1PolicyRulesWithSubjects]
+            typing.List[kubernetes.client.V1alpha1PolicyRulesWithSubjects]
         ] = ...
     ) -> None: ...
     def to_dict(self) -> V1alpha1FlowSchemaSpecDict: ...
@@ -30,4 +32,6 @@ class V1alpha1FlowSchemaSpecDict(typing.TypedDict, total=False):
     ]
     matchingPrecedence: typing.Optional[int]
     priorityLevelConfiguration: kubernetes.client.V1alpha1PriorityLevelConfigurationReferenceDict
-    rules: typing.Optional[list[kubernetes.client.V1alpha1PolicyRulesWithSubjectsDict]]
+    rules: typing.Optional[
+        typing.List[kubernetes.client.V1alpha1PolicyRulesWithSubjectsDict]
+    ]

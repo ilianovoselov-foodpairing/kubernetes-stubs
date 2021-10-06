@@ -7,7 +7,7 @@ class V1RBDPersistentVolumeSource:
     fs_type: typing.Optional[str]
     image: str
     keyring: typing.Optional[str]
-    monitors: list[str]
+    monitors: typing.List[str]
     pool: typing.Optional[str]
     read_only: typing.Optional[bool]
     secret_ref: typing.Optional[kubernetes.client.V1SecretReference]
@@ -18,7 +18,7 @@ class V1RBDPersistentVolumeSource:
         fs_type: typing.Optional[str] = ...,
         image: str,
         keyring: typing.Optional[str] = ...,
-        monitors: list[str],
+        monitors: typing.List[str],
         pool: typing.Optional[str] = ...,
         read_only: typing.Optional[bool] = ...,
         secret_ref: typing.Optional[kubernetes.client.V1SecretReference] = ...,
@@ -30,7 +30,7 @@ class V1RBDPersistentVolumeSourceDict(typing.TypedDict, total=False):
     fsType: typing.Optional[str]
     image: str
     keyring: typing.Optional[str]
-    monitors: list[str]
+    monitors: typing.List[str]
     pool: typing.Optional[str]
     readOnly: typing.Optional[bool]
     secretRef: typing.Optional[kubernetes.client.V1SecretReferenceDict]

@@ -10,8 +10,8 @@ class V1PodSecurityContext:
     run_as_non_root: typing.Optional[bool]
     run_as_user: typing.Optional[int]
     se_linux_options: typing.Optional[kubernetes.client.V1SELinuxOptions]
-    supplemental_groups: typing.Optional[list[int]]
-    sysctls: typing.Optional[list[kubernetes.client.V1Sysctl]]
+    supplemental_groups: typing.Optional[typing.List[int]]
+    sysctls: typing.Optional[typing.List[kubernetes.client.V1Sysctl]]
     windows_options: typing.Optional[kubernetes.client.V1WindowsSecurityContextOptions]
     def __init__(
         self,
@@ -22,8 +22,8 @@ class V1PodSecurityContext:
         run_as_non_root: typing.Optional[bool] = ...,
         run_as_user: typing.Optional[int] = ...,
         se_linux_options: typing.Optional[kubernetes.client.V1SELinuxOptions] = ...,
-        supplemental_groups: typing.Optional[list[int]] = ...,
-        sysctls: typing.Optional[list[kubernetes.client.V1Sysctl]] = ...,
+        supplemental_groups: typing.Optional[typing.List[int]] = ...,
+        sysctls: typing.Optional[typing.List[kubernetes.client.V1Sysctl]] = ...,
         windows_options: typing.Optional[
             kubernetes.client.V1WindowsSecurityContextOptions
         ] = ...
@@ -37,8 +37,8 @@ class V1PodSecurityContextDict(typing.TypedDict, total=False):
     runAsNonRoot: typing.Optional[bool]
     runAsUser: typing.Optional[int]
     seLinuxOptions: typing.Optional[kubernetes.client.V1SELinuxOptionsDict]
-    supplementalGroups: typing.Optional[list[int]]
-    sysctls: typing.Optional[list[kubernetes.client.V1SysctlDict]]
+    supplementalGroups: typing.Optional[typing.List[int]]
+    sysctls: typing.Optional[typing.List[kubernetes.client.V1SysctlDict]]
     windowsOptions: typing.Optional[
         kubernetes.client.V1WindowsSecurityContextOptionsDict
     ]

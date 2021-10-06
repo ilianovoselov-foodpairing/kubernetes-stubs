@@ -6,7 +6,7 @@ import kubernetes.client
 class V1ReplicationControllerStatus:
     available_replicas: typing.Optional[int]
     conditions: typing.Optional[
-        list[kubernetes.client.V1ReplicationControllerCondition]
+        typing.List[kubernetes.client.V1ReplicationControllerCondition]
     ]
     fully_labeled_replicas: typing.Optional[int]
     observed_generation: typing.Optional[int]
@@ -17,7 +17,7 @@ class V1ReplicationControllerStatus:
         *,
         available_replicas: typing.Optional[int] = ...,
         conditions: typing.Optional[
-            list[kubernetes.client.V1ReplicationControllerCondition]
+            typing.List[kubernetes.client.V1ReplicationControllerCondition]
         ] = ...,
         fully_labeled_replicas: typing.Optional[int] = ...,
         observed_generation: typing.Optional[int] = ...,
@@ -29,7 +29,7 @@ class V1ReplicationControllerStatus:
 class V1ReplicationControllerStatusDict(typing.TypedDict, total=False):
     availableReplicas: typing.Optional[int]
     conditions: typing.Optional[
-        list[kubernetes.client.V1ReplicationControllerConditionDict]
+        typing.List[kubernetes.client.V1ReplicationControllerConditionDict]
     ]
     fullyLabeledReplicas: typing.Optional[int]
     observedGeneration: typing.Optional[int]

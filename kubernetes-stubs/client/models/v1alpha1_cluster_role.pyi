@@ -8,7 +8,7 @@ class V1alpha1ClusterRole:
     api_version: typing.Optional[str]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ObjectMeta]
-    rules: typing.Optional[list[kubernetes.client.V1alpha1PolicyRule]]
+    rules: typing.Optional[typing.List[kubernetes.client.V1alpha1PolicyRule]]
     def __init__(
         self,
         *,
@@ -18,7 +18,7 @@ class V1alpha1ClusterRole:
         api_version: typing.Optional[str] = ...,
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ObjectMeta] = ...,
-        rules: typing.Optional[list[kubernetes.client.V1alpha1PolicyRule]] = ...
+        rules: typing.Optional[typing.List[kubernetes.client.V1alpha1PolicyRule]] = ...
     ) -> None: ...
     def to_dict(self) -> V1alpha1ClusterRoleDict: ...
 
@@ -27,4 +27,4 @@ class V1alpha1ClusterRoleDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ObjectMetaDict]
-    rules: typing.Optional[list[kubernetes.client.V1alpha1PolicyRuleDict]]
+    rules: typing.Optional[typing.List[kubernetes.client.V1alpha1PolicyRuleDict]]

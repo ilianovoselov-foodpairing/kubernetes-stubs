@@ -4,40 +4,40 @@ import typing
 import kubernetes.client
 
 class V1APIResource:
-    categories: typing.Optional[list[str]]
+    categories: typing.Optional[typing.List[str]]
     group: typing.Optional[str]
     kind: str
     name: str
     namespaced: bool
-    short_names: typing.Optional[list[str]]
+    short_names: typing.Optional[typing.List[str]]
     singular_name: str
     storage_version_hash: typing.Optional[str]
-    verbs: list[str]
+    verbs: typing.List[str]
     version: typing.Optional[str]
     def __init__(
         self,
         *,
-        categories: typing.Optional[list[str]] = ...,
+        categories: typing.Optional[typing.List[str]] = ...,
         group: typing.Optional[str] = ...,
         kind: str,
         name: str,
         namespaced: bool,
-        short_names: typing.Optional[list[str]] = ...,
+        short_names: typing.Optional[typing.List[str]] = ...,
         singular_name: str,
         storage_version_hash: typing.Optional[str] = ...,
-        verbs: list[str],
+        verbs: typing.List[str],
         version: typing.Optional[str] = ...
     ) -> None: ...
     def to_dict(self) -> V1APIResourceDict: ...
 
 class V1APIResourceDict(typing.TypedDict, total=False):
-    categories: typing.Optional[list[str]]
+    categories: typing.Optional[typing.List[str]]
     group: typing.Optional[str]
     kind: str
     name: str
     namespaced: bool
-    shortNames: typing.Optional[list[str]]
+    shortNames: typing.Optional[typing.List[str]]
     singularName: str
     storageVersionHash: typing.Optional[str]
-    verbs: list[str]
+    verbs: typing.List[str]
     version: typing.Optional[str]

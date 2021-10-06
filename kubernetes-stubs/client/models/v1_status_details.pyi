@@ -4,7 +4,7 @@ import typing
 import kubernetes.client
 
 class V1StatusDetails:
-    causes: typing.Optional[list[kubernetes.client.V1StatusCause]]
+    causes: typing.Optional[typing.List[kubernetes.client.V1StatusCause]]
     group: typing.Optional[str]
     kind: typing.Optional[str]
     name: typing.Optional[str]
@@ -13,7 +13,7 @@ class V1StatusDetails:
     def __init__(
         self,
         *,
-        causes: typing.Optional[list[kubernetes.client.V1StatusCause]] = ...,
+        causes: typing.Optional[typing.List[kubernetes.client.V1StatusCause]] = ...,
         group: typing.Optional[str] = ...,
         kind: typing.Optional[str] = ...,
         name: typing.Optional[str] = ...,
@@ -23,7 +23,7 @@ class V1StatusDetails:
     def to_dict(self) -> V1StatusDetailsDict: ...
 
 class V1StatusDetailsDict(typing.TypedDict, total=False):
-    causes: typing.Optional[list[kubernetes.client.V1StatusCauseDict]]
+    causes: typing.Optional[typing.List[kubernetes.client.V1StatusCauseDict]]
     group: typing.Optional[str]
     kind: typing.Optional[str]
     name: typing.Optional[str]

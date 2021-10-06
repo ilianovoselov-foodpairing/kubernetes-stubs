@@ -5,7 +5,7 @@ import kubernetes.client
 
 class V1DeleteOptions:
     api_version: typing.Optional[str]
-    dry_run: typing.Optional[list[str]]
+    dry_run: typing.Optional[typing.List[str]]
     grace_period_seconds: typing.Optional[int]
     kind: typing.Optional[str]
     orphan_dependents: typing.Optional[bool]
@@ -15,7 +15,7 @@ class V1DeleteOptions:
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        dry_run: typing.Optional[list[str]] = ...,
+        dry_run: typing.Optional[typing.List[str]] = ...,
         grace_period_seconds: typing.Optional[int] = ...,
         kind: typing.Optional[str] = ...,
         orphan_dependents: typing.Optional[bool] = ...,
@@ -26,7 +26,7 @@ class V1DeleteOptions:
 
 class V1DeleteOptionsDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    dryRun: typing.Optional[list[str]]
+    dryRun: typing.Optional[typing.List[str]]
     gracePeriodSeconds: typing.Optional[int]
     kind: typing.Optional[str]
     orphanDependents: typing.Optional[bool]

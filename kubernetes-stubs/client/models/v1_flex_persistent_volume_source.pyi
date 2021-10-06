@@ -6,7 +6,7 @@ import kubernetes.client
 class V1FlexPersistentVolumeSource:
     driver: str
     fs_type: typing.Optional[str]
-    options: typing.Optional[dict[str, str]]
+    options: typing.Optional[typing.Dict[str, str]]
     read_only: typing.Optional[bool]
     secret_ref: typing.Optional[kubernetes.client.V1SecretReference]
     def __init__(
@@ -14,7 +14,7 @@ class V1FlexPersistentVolumeSource:
         *,
         driver: str,
         fs_type: typing.Optional[str] = ...,
-        options: typing.Optional[dict[str, str]] = ...,
+        options: typing.Optional[typing.Dict[str, str]] = ...,
         read_only: typing.Optional[bool] = ...,
         secret_ref: typing.Optional[kubernetes.client.V1SecretReference] = ...
     ) -> None: ...
@@ -23,6 +23,6 @@ class V1FlexPersistentVolumeSource:
 class V1FlexPersistentVolumeSourceDict(typing.TypedDict, total=False):
     driver: str
     fsType: typing.Optional[str]
-    options: typing.Optional[dict[str, str]]
+    options: typing.Optional[typing.Dict[str, str]]
     readOnly: typing.Optional[bool]
     secretRef: typing.Optional[kubernetes.client.V1SecretReferenceDict]

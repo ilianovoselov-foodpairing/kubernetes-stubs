@@ -5,8 +5,8 @@ import kubernetes.client
 
 class V1ConfigMap:
     api_version: typing.Optional[str]
-    binary_data: typing.Optional[dict[str, str]]
-    data: typing.Optional[dict[str, str]]
+    binary_data: typing.Optional[typing.Dict[str, str]]
+    data: typing.Optional[typing.Dict[str, str]]
     immutable: typing.Optional[bool]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ObjectMeta]
@@ -14,8 +14,8 @@ class V1ConfigMap:
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        binary_data: typing.Optional[dict[str, str]] = ...,
-        data: typing.Optional[dict[str, str]] = ...,
+        binary_data: typing.Optional[typing.Dict[str, str]] = ...,
+        data: typing.Optional[typing.Dict[str, str]] = ...,
         immutable: typing.Optional[bool] = ...,
         kind: typing.Optional[str] = ...,
         metadata: typing.Optional[kubernetes.client.V1ObjectMeta] = ...
@@ -24,8 +24,8 @@ class V1ConfigMap:
 
 class V1ConfigMapDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    binaryData: typing.Optional[dict[str, str]]
-    data: typing.Optional[dict[str, str]]
+    binaryData: typing.Optional[typing.Dict[str, str]]
+    data: typing.Optional[typing.Dict[str, str]]
     immutable: typing.Optional[bool]
     kind: typing.Optional[str]
     metadata: typing.Optional[kubernetes.client.V1ObjectMetaDict]

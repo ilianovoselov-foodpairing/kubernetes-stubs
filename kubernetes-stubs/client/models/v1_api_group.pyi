@@ -9,9 +9,9 @@ class V1APIGroup:
     name: str
     preferred_version: typing.Optional[kubernetes.client.V1GroupVersionForDiscovery]
     server_address_by_client_cid_rs: typing.Optional[
-        list[kubernetes.client.V1ServerAddressByClientCIDR]
+        typing.List[kubernetes.client.V1ServerAddressByClientCIDR]
     ]
-    versions: list[kubernetes.client.V1GroupVersionForDiscovery]
+    versions: typing.List[kubernetes.client.V1GroupVersionForDiscovery]
     def __init__(
         self,
         *,
@@ -22,9 +22,9 @@ class V1APIGroup:
             kubernetes.client.V1GroupVersionForDiscovery
         ] = ...,
         server_address_by_client_cid_rs: typing.Optional[
-            list[kubernetes.client.V1ServerAddressByClientCIDR]
+            typing.List[kubernetes.client.V1ServerAddressByClientCIDR]
         ] = ...,
-        versions: list[kubernetes.client.V1GroupVersionForDiscovery]
+        versions: typing.List[kubernetes.client.V1GroupVersionForDiscovery]
     ) -> None: ...
     def to_dict(self) -> V1APIGroupDict: ...
 
@@ -34,6 +34,6 @@ class V1APIGroupDict(typing.TypedDict, total=False):
     name: str
     preferredVersion: typing.Optional[kubernetes.client.V1GroupVersionForDiscoveryDict]
     serverAddressByClientCIDRs: typing.Optional[
-        list[kubernetes.client.V1ServerAddressByClientCIDRDict]
+        typing.List[kubernetes.client.V1ServerAddressByClientCIDRDict]
     ]
-    versions: list[kubernetes.client.V1GroupVersionForDiscoveryDict]
+    versions: typing.List[kubernetes.client.V1GroupVersionForDiscoveryDict]

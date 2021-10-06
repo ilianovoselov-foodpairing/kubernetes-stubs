@@ -4,7 +4,7 @@ import typing
 import kubernetes.client
 
 class V1CephFSVolumeSource:
-    monitors: list[str]
+    monitors: typing.List[str]
     path: typing.Optional[str]
     read_only: typing.Optional[bool]
     secret_file: typing.Optional[str]
@@ -13,7 +13,7 @@ class V1CephFSVolumeSource:
     def __init__(
         self,
         *,
-        monitors: list[str],
+        monitors: typing.List[str],
         path: typing.Optional[str] = ...,
         read_only: typing.Optional[bool] = ...,
         secret_file: typing.Optional[str] = ...,
@@ -23,7 +23,7 @@ class V1CephFSVolumeSource:
     def to_dict(self) -> V1CephFSVolumeSourceDict: ...
 
 class V1CephFSVolumeSourceDict(typing.TypedDict, total=False):
-    monitors: list[str]
+    monitors: typing.List[str]
     path: typing.Optional[str]
     readOnly: typing.Optional[bool]
     secretFile: typing.Optional[str]

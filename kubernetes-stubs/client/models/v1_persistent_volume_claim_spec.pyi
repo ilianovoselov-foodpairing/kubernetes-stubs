@@ -4,7 +4,7 @@ import typing
 import kubernetes.client
 
 class V1PersistentVolumeClaimSpec:
-    access_modes: typing.Optional[list[str]]
+    access_modes: typing.Optional[typing.List[str]]
     data_source: typing.Optional[kubernetes.client.V1TypedLocalObjectReference]
     resources: typing.Optional[kubernetes.client.V1ResourceRequirements]
     selector: typing.Optional[kubernetes.client.V1LabelSelector]
@@ -14,7 +14,7 @@ class V1PersistentVolumeClaimSpec:
     def __init__(
         self,
         *,
-        access_modes: typing.Optional[list[str]] = ...,
+        access_modes: typing.Optional[typing.List[str]] = ...,
         data_source: typing.Optional[
             kubernetes.client.V1TypedLocalObjectReference
         ] = ...,
@@ -27,7 +27,7 @@ class V1PersistentVolumeClaimSpec:
     def to_dict(self) -> V1PersistentVolumeClaimSpecDict: ...
 
 class V1PersistentVolumeClaimSpecDict(typing.TypedDict, total=False):
-    accessModes: typing.Optional[list[str]]
+    accessModes: typing.Optional[typing.List[str]]
     dataSource: typing.Optional[kubernetes.client.V1TypedLocalObjectReferenceDict]
     resources: typing.Optional[kubernetes.client.V1ResourceRequirementsDict]
     selector: typing.Optional[kubernetes.client.V1LabelSelectorDict]

@@ -9,7 +9,7 @@ class V1CustomResourceDefinitionSpec:
     names: kubernetes.client.V1CustomResourceDefinitionNames
     preserve_unknown_fields: typing.Optional[bool]
     scope: str
-    versions: list[kubernetes.client.V1CustomResourceDefinitionVersion]
+    versions: typing.List[kubernetes.client.V1CustomResourceDefinitionVersion]
     def __init__(
         self,
         *,
@@ -18,7 +18,7 @@ class V1CustomResourceDefinitionSpec:
         names: kubernetes.client.V1CustomResourceDefinitionNames,
         preserve_unknown_fields: typing.Optional[bool] = ...,
         scope: str,
-        versions: list[kubernetes.client.V1CustomResourceDefinitionVersion]
+        versions: typing.List[kubernetes.client.V1CustomResourceDefinitionVersion]
     ) -> None: ...
     def to_dict(self) -> V1CustomResourceDefinitionSpecDict: ...
 
@@ -28,4 +28,4 @@ class V1CustomResourceDefinitionSpecDict(typing.TypedDict, total=False):
     names: kubernetes.client.V1CustomResourceDefinitionNamesDict
     preserveUnknownFields: typing.Optional[bool]
     scope: str
-    versions: list[kubernetes.client.V1CustomResourceDefinitionVersionDict]
+    versions: typing.List[kubernetes.client.V1CustomResourceDefinitionVersionDict]

@@ -4,14 +4,14 @@ import typing
 import kubernetes.client
 
 class V2beta2HPAScalingRules:
-    policies: typing.Optional[list[kubernetes.client.V2beta2HPAScalingPolicy]]
+    policies: typing.Optional[typing.List[kubernetes.client.V2beta2HPAScalingPolicy]]
     select_policy: typing.Optional[str]
     stabilization_window_seconds: typing.Optional[int]
     def __init__(
         self,
         *,
         policies: typing.Optional[
-            list[kubernetes.client.V2beta2HPAScalingPolicy]
+            typing.List[kubernetes.client.V2beta2HPAScalingPolicy]
         ] = ...,
         select_policy: typing.Optional[str] = ...,
         stabilization_window_seconds: typing.Optional[int] = ...
@@ -19,6 +19,8 @@ class V2beta2HPAScalingRules:
     def to_dict(self) -> V2beta2HPAScalingRulesDict: ...
 
 class V2beta2HPAScalingRulesDict(typing.TypedDict, total=False):
-    policies: typing.Optional[list[kubernetes.client.V2beta2HPAScalingPolicyDict]]
+    policies: typing.Optional[
+        typing.List[kubernetes.client.V2beta2HPAScalingPolicyDict]
+    ]
     selectPolicy: typing.Optional[str]
     stabilizationWindowSeconds: typing.Optional[int]

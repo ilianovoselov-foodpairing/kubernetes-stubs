@@ -4,7 +4,7 @@ import typing
 import kubernetes.client
 
 class V1beta1CustomResourceConversion:
-    conversion_review_versions: typing.Optional[list[str]]
+    conversion_review_versions: typing.Optional[typing.List[str]]
     strategy: str
     webhook_client_config: typing.Optional[
         kubernetes.client.ApiextensionsV1beta1WebhookClientConfig
@@ -12,7 +12,7 @@ class V1beta1CustomResourceConversion:
     def __init__(
         self,
         *,
-        conversion_review_versions: typing.Optional[list[str]] = ...,
+        conversion_review_versions: typing.Optional[typing.List[str]] = ...,
         strategy: str,
         webhook_client_config: typing.Optional[
             kubernetes.client.ApiextensionsV1beta1WebhookClientConfig
@@ -21,7 +21,7 @@ class V1beta1CustomResourceConversion:
     def to_dict(self) -> V1beta1CustomResourceConversionDict: ...
 
 class V1beta1CustomResourceConversionDict(typing.TypedDict, total=False):
-    conversionReviewVersions: typing.Optional[list[str]]
+    conversionReviewVersions: typing.Optional[typing.List[str]]
     strategy: str
     webhookClientConfig: typing.Optional[
         kubernetes.client.ApiextensionsV1beta1WebhookClientConfigDict
