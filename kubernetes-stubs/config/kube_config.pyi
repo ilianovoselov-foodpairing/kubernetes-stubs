@@ -1,4 +1,4 @@
-from typing import Any, Optional, TypedDict
+from typing import Any, Dict, List, Optional, TypedDict
 
 from kubernetes.client import ApiClient, Configuration
 
@@ -6,11 +6,11 @@ KUBE_CONFIG_DEFAULT_LOCATION: str = ...
 
 class Context(TypedDict):
     name: str
-    context: dict[str, Any]
+    context: Dict[str, Any]
 
 def list_kube_config_contexts(
     config_file: Optional[str] = ...,
-) -> tuple[list[Context], Context]: ...
+) -> tuple[List[Context], Context]: ...
 def load_kube_config(
     config_file: Optional[str] = ...,
     context: Optional[str] = ...,
@@ -18,7 +18,7 @@ def load_kube_config(
     persist_config: bool = ...,
 ) -> None: ...
 def load_kube_config_from_dict(
-    config_dict: dict[Any, Any] = ...,
+    config_dict: Dict[Any, Any] = ...,
     context: Optional[str] = ...,
     client_configuration: Optional[Configuration] = ...,
     persist_config: bool = ...,

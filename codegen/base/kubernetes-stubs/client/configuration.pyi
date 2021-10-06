@@ -1,9 +1,9 @@
-from typing import Optional
+from typing import Dict, Optional
 
 class Configuration(object):
     host: str
     temp_folder_path: str
-    api_key: dict[str, str]
+    api_key: Dict[str, str]
     api_key_prefix: str
     username: str
     password: str
