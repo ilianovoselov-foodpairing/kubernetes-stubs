@@ -319,6 +319,20 @@ reexport(
 reexport(
     CLIENT_STUBS_DIR / "__init__.pyi",
     chain(
+        [
+            ("kubernetes.client.api_client", ["ApiClient"]),
+            ("kubernetes.client.configuration", ["Configuration"]),
+            (
+                "kubernetes.client.exceptions",
+                [
+                    "ApiException",
+                    "ApiKeyError",
+                    "ApiTypeError",
+                    "ApiValueError",
+                    "OpenApiException",
+                ],
+            ),
+        ],
         (
             (
                 f"kubernetes.client.models.{make_file_name(name)}",

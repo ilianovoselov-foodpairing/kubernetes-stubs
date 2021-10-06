@@ -1246,6 +1246,13 @@ from kubernetes.client.models.v2beta2_resource_metric_status import (
 from kubernetes.client.models.version_info import VersionInfo, VersionInfoDict
 
 __all__ = [
+    "ApiClient",
+    "Configuration",
+    "ApiException",
+    "ApiKeyError",
+    "ApiTypeError",
+    "ApiValueError",
+    "OpenApiException",
     "V1SelfSubjectRulesReview",
     "V1SelfSubjectRulesReviewDict",
     "V2beta2MetricSpec",
