@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1PersistentVolumeClaimCondition:
     last_probe_time: typing.Optional[datetime.datetime]
     last_transition_time: typing.Optional[datetime.datetime]

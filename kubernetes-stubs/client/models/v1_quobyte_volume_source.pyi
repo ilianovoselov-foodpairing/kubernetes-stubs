@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1QuobyteVolumeSource:
     group: typing.Optional[str]
     read_only: typing.Optional[bool]

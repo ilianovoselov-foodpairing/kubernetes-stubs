@@ -1,14 +1,15 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.apiregistration_v1_service_reference import (
+    ApiregistrationV1ServiceReference, ApiregistrationV1ServiceReferenceDict)
 
 class V1APIServiceSpec:
     ca_bundle: typing.Optional[str]
     group: typing.Optional[str]
     group_priority_minimum: int
     insecure_skip_tls_verify: typing.Optional[bool]
-    service: typing.Optional[kubernetes.client.ApiregistrationV1ServiceReference]
+    service: typing.Optional[ApiregistrationV1ServiceReference]
     version: typing.Optional[str]
     version_priority: int
     def __init__(
@@ -18,9 +19,7 @@ class V1APIServiceSpec:
         group: typing.Optional[str] = ...,
         group_priority_minimum: int,
         insecure_skip_tls_verify: typing.Optional[bool] = ...,
-        service: typing.Optional[
-            kubernetes.client.ApiregistrationV1ServiceReference
-        ] = ...,
+        service: typing.Optional[ApiregistrationV1ServiceReference] = ...,
         version: typing.Optional[str] = ...,
         version_priority: int
     ) -> None: ...
@@ -31,6 +30,6 @@ class V1APIServiceSpecDict(typing.TypedDict, total=False):
     group: typing.Optional[str]
     groupPriorityMinimum: int
     insecureSkipTLSVerify: typing.Optional[bool]
-    service: typing.Optional[kubernetes.client.ApiregistrationV1ServiceReferenceDict]
+    service: typing.Optional[ApiregistrationV1ServiceReferenceDict]
     version: typing.Optional[str]
     versionPriority: int

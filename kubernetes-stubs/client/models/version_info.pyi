@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class VersionInfo:
     build_date: str
     compiler: str

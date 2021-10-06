@@ -1,25 +1,27 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_list_meta import V1ListMeta, V1ListMetaDict
+from kubernetes.client.models.v1beta1_ingress_class import (
+    V1beta1IngressClass, V1beta1IngressClassDict)
 
 class V1beta1IngressClassList:
     api_version: typing.Optional[str]
-    items: typing.List[kubernetes.client.V1beta1IngressClass]
+    items: typing.List[V1beta1IngressClass]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ListMeta]
+    metadata: typing.Optional[V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: typing.List[kubernetes.client.V1beta1IngressClass],
+        items: typing.List[V1beta1IngressClass],
         kind: typing.Optional[str] = ...,
-        metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
+        metadata: typing.Optional[V1ListMeta] = ...
     ) -> None: ...
     def to_dict(self) -> V1beta1IngressClassListDict: ...
 
 class V1beta1IngressClassListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: typing.List[kubernetes.client.V1beta1IngressClassDict]
+    items: typing.List[V1beta1IngressClassDict]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ListMetaDict]
+    metadata: typing.Optional[V1ListMetaDict]

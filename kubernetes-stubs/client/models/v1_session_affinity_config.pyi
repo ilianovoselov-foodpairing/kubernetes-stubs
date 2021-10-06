@@ -1,14 +1,15 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_client_ip_config import (V1ClientIPConfig,
+                                                          V1ClientIPConfigDict)
 
 class V1SessionAffinityConfig:
-    client_ip: typing.Optional[kubernetes.client.V1ClientIPConfig]
+    client_ip: typing.Optional[V1ClientIPConfig]
     def __init__(
-        self, *, client_ip: typing.Optional[kubernetes.client.V1ClientIPConfig] = ...
+        self, *, client_ip: typing.Optional[V1ClientIPConfig] = ...
     ) -> None: ...
     def to_dict(self) -> V1SessionAffinityConfigDict: ...
 
 class V1SessionAffinityConfigDict(typing.TypedDict, total=False):
-    clientIP: typing.Optional[kubernetes.client.V1ClientIPConfigDict]
+    clientIP: typing.Optional[V1ClientIPConfigDict]

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class AdmissionregistrationV1ServiceReference:
     name: str
     namespace: str

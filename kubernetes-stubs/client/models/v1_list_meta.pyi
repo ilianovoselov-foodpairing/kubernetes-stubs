@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ListMeta:
     _continue: typing.Optional[str]
     remaining_item_count: typing.Optional[int]

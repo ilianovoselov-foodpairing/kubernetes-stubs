@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1TopologySelectorLabelRequirement:
     key: str
     values: typing.List[str]

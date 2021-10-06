@@ -1,25 +1,27 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_api_service import (V1APIService,
+                                                     V1APIServiceDict)
+from kubernetes.client.models.v1_list_meta import V1ListMeta, V1ListMetaDict
 
 class V1APIServiceList:
     api_version: typing.Optional[str]
-    items: typing.List[kubernetes.client.V1APIService]
+    items: typing.List[V1APIService]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ListMeta]
+    metadata: typing.Optional[V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: typing.List[kubernetes.client.V1APIService],
+        items: typing.List[V1APIService],
         kind: typing.Optional[str] = ...,
-        metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
+        metadata: typing.Optional[V1ListMeta] = ...
     ) -> None: ...
     def to_dict(self) -> V1APIServiceListDict: ...
 
 class V1APIServiceListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: typing.List[kubernetes.client.V1APIServiceDict]
+    items: typing.List[V1APIServiceDict]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ListMetaDict]
+    metadata: typing.Optional[V1ListMetaDict]

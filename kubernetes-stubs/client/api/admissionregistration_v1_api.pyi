@@ -1,12 +1,21 @@
 import typing
 
-import kubernetes.client
+from kubernetes.client.api_client import ApiClient
+from kubernetes.client.models.v1_api_resource_list import V1APIResourceList
+from kubernetes.client.models.v1_delete_options import V1DeleteOptions
+from kubernetes.client.models.v1_mutating_webhook_configuration import \
+    V1MutatingWebhookConfiguration
+from kubernetes.client.models.v1_mutating_webhook_configuration_list import \
+    V1MutatingWebhookConfigurationList
+from kubernetes.client.models.v1_status import V1Status
+from kubernetes.client.models.v1_validating_webhook_configuration import \
+    V1ValidatingWebhookConfiguration
+from kubernetes.client.models.v1_validating_webhook_configuration_list import \
+    V1ValidatingWebhookConfigurationList
 
 class AdmissionregistrationV1Api:
-    def __init__(
-        self, api_client: typing.Optional[kubernetes.client.ApiClient] = ...
-    ) -> None: ...
-    def get_api_resources(self) -> kubernetes.client.V1APIResourceList: ...
+    def __init__(self, api_client: typing.Optional[ApiClient] = ...) -> None: ...
+    def get_api_resources(self) -> V1APIResourceList: ...
     def list_mutating_webhook_configuration(
         self,
         *,
@@ -19,20 +28,20 @@ class AdmissionregistrationV1Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1MutatingWebhookConfigurationList: ...
+    ) -> V1MutatingWebhookConfigurationList: ...
     def create_mutating_webhook_configuration(
         self,
-        body: kubernetes.client.V1MutatingWebhookConfiguration,
+        body: V1MutatingWebhookConfiguration,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1MutatingWebhookConfiguration: ...
+    ) -> V1MutatingWebhookConfiguration: ...
     def delete_collection_mutating_webhook_configuration(
         self,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         _continue: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_selector: typing.Optional[str] = ...,
@@ -43,7 +52,7 @@ class AdmissionregistrationV1Api:
         propagation_policy: typing.Optional[str] = ...,
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def read_mutating_webhook_configuration(
         self,
         name: str,
@@ -51,27 +60,27 @@ class AdmissionregistrationV1Api:
         pretty: typing.Optional[str] = ...,
         exact: typing.Optional[bool] = ...,
         export: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1MutatingWebhookConfiguration: ...
+    ) -> V1MutatingWebhookConfiguration: ...
     def replace_mutating_webhook_configuration(
         self,
         name: str,
-        body: kubernetes.client.V1MutatingWebhookConfiguration,
+        body: V1MutatingWebhookConfiguration,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1MutatingWebhookConfiguration: ...
+    ) -> V1MutatingWebhookConfiguration: ...
     def delete_mutating_webhook_configuration(
         self,
         name: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         dry_run: typing.Optional[str] = ...,
         grace_period_seconds: typing.Optional[int] = ...,
         orphan_dependents: typing.Optional[bool] = ...,
         propagation_policy: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def patch_mutating_webhook_configuration(
         self,
         name: str,
@@ -81,7 +90,7 @@ class AdmissionregistrationV1Api:
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...,
         force: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1MutatingWebhookConfiguration: ...
+    ) -> V1MutatingWebhookConfiguration: ...
     def list_validating_webhook_configuration(
         self,
         *,
@@ -94,20 +103,20 @@ class AdmissionregistrationV1Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1ValidatingWebhookConfigurationList: ...
+    ) -> V1ValidatingWebhookConfigurationList: ...
     def create_validating_webhook_configuration(
         self,
-        body: kubernetes.client.V1ValidatingWebhookConfiguration,
+        body: V1ValidatingWebhookConfiguration,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1ValidatingWebhookConfiguration: ...
+    ) -> V1ValidatingWebhookConfiguration: ...
     def delete_collection_validating_webhook_configuration(
         self,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         _continue: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_selector: typing.Optional[str] = ...,
@@ -118,7 +127,7 @@ class AdmissionregistrationV1Api:
         propagation_policy: typing.Optional[str] = ...,
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def read_validating_webhook_configuration(
         self,
         name: str,
@@ -126,27 +135,27 @@ class AdmissionregistrationV1Api:
         pretty: typing.Optional[str] = ...,
         exact: typing.Optional[bool] = ...,
         export: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1ValidatingWebhookConfiguration: ...
+    ) -> V1ValidatingWebhookConfiguration: ...
     def replace_validating_webhook_configuration(
         self,
         name: str,
-        body: kubernetes.client.V1ValidatingWebhookConfiguration,
+        body: V1ValidatingWebhookConfiguration,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1ValidatingWebhookConfiguration: ...
+    ) -> V1ValidatingWebhookConfiguration: ...
     def delete_validating_webhook_configuration(
         self,
         name: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         dry_run: typing.Optional[str] = ...,
         grace_period_seconds: typing.Optional[int] = ...,
         orphan_dependents: typing.Optional[bool] = ...,
         propagation_policy: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def patch_validating_webhook_configuration(
         self,
         name: str,
@@ -156,4 +165,4 @@ class AdmissionregistrationV1Api:
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...,
         force: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1ValidatingWebhookConfiguration: ...
+    ) -> V1ValidatingWebhookConfiguration: ...

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1TokenRequestStatus:
     expiration_timestamp: datetime.datetime
     token: str

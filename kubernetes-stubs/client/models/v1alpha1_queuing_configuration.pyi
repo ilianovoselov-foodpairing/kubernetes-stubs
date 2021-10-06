@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1alpha1QueuingConfiguration:
     hand_size: typing.Optional[int]
     queue_length_limit: typing.Optional[int]

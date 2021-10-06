@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ServiceAccountTokenProjection:
     audience: typing.Optional[str]
     expiration_seconds: typing.Optional[int]

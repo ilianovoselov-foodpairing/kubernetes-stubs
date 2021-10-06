@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class ApiregistrationV1ServiceReference:
     name: typing.Optional[str]
     namespace: typing.Optional[str]

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1beta1PodDisruptionBudgetStatus:
     current_healthy: int
     desired_healthy: int

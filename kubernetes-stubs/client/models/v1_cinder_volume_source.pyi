@@ -1,19 +1,20 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_local_object_reference import (
+    V1LocalObjectReference, V1LocalObjectReferenceDict)
 
 class V1CinderVolumeSource:
     fs_type: typing.Optional[str]
     read_only: typing.Optional[bool]
-    secret_ref: typing.Optional[kubernetes.client.V1LocalObjectReference]
+    secret_ref: typing.Optional[V1LocalObjectReference]
     volume_id: str
     def __init__(
         self,
         *,
         fs_type: typing.Optional[str] = ...,
         read_only: typing.Optional[bool] = ...,
-        secret_ref: typing.Optional[kubernetes.client.V1LocalObjectReference] = ...,
+        secret_ref: typing.Optional[V1LocalObjectReference] = ...,
         volume_id: str
     ) -> None: ...
     def to_dict(self) -> V1CinderVolumeSourceDict: ...
@@ -21,5 +22,5 @@ class V1CinderVolumeSource:
 class V1CinderVolumeSourceDict(typing.TypedDict, total=False):
     fsType: typing.Optional[str]
     readOnly: typing.Optional[bool]
-    secretRef: typing.Optional[kubernetes.client.V1LocalObjectReferenceDict]
+    secretRef: typing.Optional[V1LocalObjectReferenceDict]
     volumeID: str

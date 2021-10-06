@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ManagedFieldsEntry:
     api_version: typing.Optional[str]
     fields_type: typing.Optional[str]

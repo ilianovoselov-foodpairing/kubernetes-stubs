@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1AWSElasticBlockStoreVolumeSource:
     fs_type: typing.Optional[str]
     partition: typing.Optional[int]

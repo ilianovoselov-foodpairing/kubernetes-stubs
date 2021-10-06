@@ -1,12 +1,15 @@
 import typing
 
-import kubernetes.client
+from kubernetes.client.api_client import ApiClient
+from kubernetes.client.models.v1_api_resource_list import V1APIResourceList
+from kubernetes.client.models.v1_delete_options import V1DeleteOptions
+from kubernetes.client.models.v1_network_policy import V1NetworkPolicy
+from kubernetes.client.models.v1_network_policy_list import V1NetworkPolicyList
+from kubernetes.client.models.v1_status import V1Status
 
 class NetworkingV1Api:
-    def __init__(
-        self, api_client: typing.Optional[kubernetes.client.ApiClient] = ...
-    ) -> None: ...
-    def get_api_resources(self) -> kubernetes.client.V1APIResourceList: ...
+    def __init__(self, api_client: typing.Optional[ApiClient] = ...) -> None: ...
+    def get_api_resources(self) -> V1APIResourceList: ...
     def list_namespaced_network_policy(
         self,
         namespace: str,
@@ -20,22 +23,22 @@ class NetworkingV1Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1NetworkPolicyList: ...
+    ) -> V1NetworkPolicyList: ...
     def create_namespaced_network_policy(
         self,
         namespace: str,
-        body: kubernetes.client.V1NetworkPolicy,
+        body: V1NetworkPolicy,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1NetworkPolicy: ...
+    ) -> V1NetworkPolicy: ...
     def delete_collection_namespaced_network_policy(
         self,
         namespace: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         _continue: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_selector: typing.Optional[str] = ...,
@@ -46,7 +49,7 @@ class NetworkingV1Api:
         propagation_policy: typing.Optional[str] = ...,
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def read_namespaced_network_policy(
         self,
         name: str,
@@ -55,29 +58,29 @@ class NetworkingV1Api:
         pretty: typing.Optional[str] = ...,
         exact: typing.Optional[bool] = ...,
         export: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1NetworkPolicy: ...
+    ) -> V1NetworkPolicy: ...
     def replace_namespaced_network_policy(
         self,
         name: str,
         namespace: str,
-        body: kubernetes.client.V1NetworkPolicy,
+        body: V1NetworkPolicy,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1NetworkPolicy: ...
+    ) -> V1NetworkPolicy: ...
     def delete_namespaced_network_policy(
         self,
         name: str,
         namespace: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         dry_run: typing.Optional[str] = ...,
         grace_period_seconds: typing.Optional[int] = ...,
         orphan_dependents: typing.Optional[bool] = ...,
         propagation_policy: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def patch_namespaced_network_policy(
         self,
         name: str,
@@ -88,7 +91,7 @@ class NetworkingV1Api:
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...,
         force: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1NetworkPolicy: ...
+    ) -> V1NetworkPolicy: ...
     def list_network_policy_for_all_namespaces(
         self,
         *,
@@ -101,4 +104,4 @@ class NetworkingV1Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1NetworkPolicyList: ...
+    ) -> V1NetworkPolicyList: ...

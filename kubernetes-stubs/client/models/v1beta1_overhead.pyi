@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1beta1Overhead:
     pod_fixed: typing.Optional[typing.Dict[str, str]]
     def __init__(

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1HostPathVolumeSource:
     path: str
     type: typing.Optional[str]

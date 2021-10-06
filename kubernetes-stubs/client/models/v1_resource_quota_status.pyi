@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ResourceQuotaStatus:
     hard: typing.Optional[typing.Dict[str, str]]
     used: typing.Optional[typing.Dict[str, str]]

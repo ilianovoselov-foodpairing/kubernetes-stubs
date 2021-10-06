@@ -1,15 +1,17 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_list_meta import V1ListMeta, V1ListMetaDict
+from kubernetes.client.models.v1_status_details import (V1StatusDetails,
+                                                        V1StatusDetailsDict)
 
 class V1Status:
     api_version: typing.Optional[str]
     code: typing.Optional[int]
-    details: typing.Optional[kubernetes.client.V1StatusDetails]
+    details: typing.Optional[V1StatusDetails]
     kind: typing.Optional[str]
     message: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ListMeta]
+    metadata: typing.Optional[V1ListMeta]
     reason: typing.Optional[str]
     status: typing.Optional[str]
     def __init__(
@@ -17,10 +19,10 @@ class V1Status:
         *,
         api_version: typing.Optional[str] = ...,
         code: typing.Optional[int] = ...,
-        details: typing.Optional[kubernetes.client.V1StatusDetails] = ...,
+        details: typing.Optional[V1StatusDetails] = ...,
         kind: typing.Optional[str] = ...,
         message: typing.Optional[str] = ...,
-        metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...,
+        metadata: typing.Optional[V1ListMeta] = ...,
         reason: typing.Optional[str] = ...,
         status: typing.Optional[str] = ...
     ) -> None: ...
@@ -29,9 +31,9 @@ class V1Status:
 class V1StatusDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
     code: typing.Optional[int]
-    details: typing.Optional[kubernetes.client.V1StatusDetailsDict]
+    details: typing.Optional[V1StatusDetailsDict]
     kind: typing.Optional[str]
     message: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ListMetaDict]
+    metadata: typing.Optional[V1ListMetaDict]
     reason: typing.Optional[str]
     status: typing.Optional[str]

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1beta1CustomResourceDefinitionNames:
     categories: typing.Optional[typing.List[str]]
     kind: str

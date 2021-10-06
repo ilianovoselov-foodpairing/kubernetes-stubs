@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1WindowsSecurityContextOptions:
     gmsa_credential_spec: typing.Optional[str]
     gmsa_credential_spec_name: typing.Optional[str]

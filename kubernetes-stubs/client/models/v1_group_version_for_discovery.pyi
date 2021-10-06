@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1GroupVersionForDiscovery:
     group_version: str
     version: str

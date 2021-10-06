@@ -1,7 +1,8 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_secret_reference import (
+    V1SecretReference, V1SecretReferenceDict)
 
 class V1RBDPersistentVolumeSource:
     fs_type: typing.Optional[str]
@@ -10,7 +11,7 @@ class V1RBDPersistentVolumeSource:
     monitors: typing.List[str]
     pool: typing.Optional[str]
     read_only: typing.Optional[bool]
-    secret_ref: typing.Optional[kubernetes.client.V1SecretReference]
+    secret_ref: typing.Optional[V1SecretReference]
     user: typing.Optional[str]
     def __init__(
         self,
@@ -21,7 +22,7 @@ class V1RBDPersistentVolumeSource:
         monitors: typing.List[str],
         pool: typing.Optional[str] = ...,
         read_only: typing.Optional[bool] = ...,
-        secret_ref: typing.Optional[kubernetes.client.V1SecretReference] = ...,
+        secret_ref: typing.Optional[V1SecretReference] = ...,
         user: typing.Optional[str] = ...
     ) -> None: ...
     def to_dict(self) -> V1RBDPersistentVolumeSourceDict: ...
@@ -33,5 +34,5 @@ class V1RBDPersistentVolumeSourceDict(typing.TypedDict, total=False):
     monitors: typing.List[str]
     pool: typing.Optional[str]
     readOnly: typing.Optional[bool]
-    secretRef: typing.Optional[kubernetes.client.V1SecretReferenceDict]
+    secretRef: typing.Optional[V1SecretReferenceDict]
     user: typing.Optional[str]

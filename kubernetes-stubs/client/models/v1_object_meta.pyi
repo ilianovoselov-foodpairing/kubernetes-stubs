@@ -1,7 +1,10 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_managed_fields_entry import (
+    V1ManagedFieldsEntry, V1ManagedFieldsEntryDict)
+from kubernetes.client.models.v1_owner_reference import (V1OwnerReference,
+                                                         V1OwnerReferenceDict)
 
 class V1ObjectMeta:
     annotations: typing.Optional[typing.Dict[str, str]]
@@ -13,10 +16,10 @@ class V1ObjectMeta:
     generate_name: typing.Optional[str]
     generation: typing.Optional[int]
     labels: typing.Optional[typing.Dict[str, str]]
-    managed_fields: typing.Optional[typing.List[kubernetes.client.V1ManagedFieldsEntry]]
+    managed_fields: typing.Optional[typing.List[V1ManagedFieldsEntry]]
     name: typing.Optional[str]
     namespace: typing.Optional[str]
-    owner_references: typing.Optional[typing.List[kubernetes.client.V1OwnerReference]]
+    owner_references: typing.Optional[typing.List[V1OwnerReference]]
     resource_version: typing.Optional[str]
     self_link: typing.Optional[str]
     uid: typing.Optional[str]
@@ -32,14 +35,10 @@ class V1ObjectMeta:
         generate_name: typing.Optional[str] = ...,
         generation: typing.Optional[int] = ...,
         labels: typing.Optional[typing.Dict[str, str]] = ...,
-        managed_fields: typing.Optional[
-            typing.List[kubernetes.client.V1ManagedFieldsEntry]
-        ] = ...,
+        managed_fields: typing.Optional[typing.List[V1ManagedFieldsEntry]] = ...,
         name: typing.Optional[str] = ...,
         namespace: typing.Optional[str] = ...,
-        owner_references: typing.Optional[
-            typing.List[kubernetes.client.V1OwnerReference]
-        ] = ...,
+        owner_references: typing.Optional[typing.List[V1OwnerReference]] = ...,
         resource_version: typing.Optional[str] = ...,
         self_link: typing.Optional[str] = ...,
         uid: typing.Optional[str] = ...
@@ -56,14 +55,10 @@ class V1ObjectMetaDict(typing.TypedDict, total=False):
     generateName: typing.Optional[str]
     generation: typing.Optional[int]
     labels: typing.Optional[typing.Dict[str, str]]
-    managedFields: typing.Optional[
-        typing.List[kubernetes.client.V1ManagedFieldsEntryDict]
-    ]
+    managedFields: typing.Optional[typing.List[V1ManagedFieldsEntryDict]]
     name: typing.Optional[str]
     namespace: typing.Optional[str]
-    ownerReferences: typing.Optional[
-        typing.List[kubernetes.client.V1OwnerReferenceDict]
-    ]
+    ownerReferences: typing.Optional[typing.List[V1OwnerReferenceDict]]
     resourceVersion: typing.Optional[str]
     selfLink: typing.Optional[str]
     uid: typing.Optional[str]

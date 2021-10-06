@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1SecretKeySelector:
     key: str
     name: typing.Optional[str]

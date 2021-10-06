@@ -1,7 +1,8 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_preconditions import (V1Preconditions,
+                                                       V1PreconditionsDict)
 
 class V1DeleteOptions:
     api_version: typing.Optional[str]
@@ -9,7 +10,7 @@ class V1DeleteOptions:
     grace_period_seconds: typing.Optional[int]
     kind: typing.Optional[str]
     orphan_dependents: typing.Optional[bool]
-    preconditions: typing.Optional[kubernetes.client.V1Preconditions]
+    preconditions: typing.Optional[V1Preconditions]
     propagation_policy: typing.Optional[str]
     def __init__(
         self,
@@ -19,7 +20,7 @@ class V1DeleteOptions:
         grace_period_seconds: typing.Optional[int] = ...,
         kind: typing.Optional[str] = ...,
         orphan_dependents: typing.Optional[bool] = ...,
-        preconditions: typing.Optional[kubernetes.client.V1Preconditions] = ...,
+        preconditions: typing.Optional[V1Preconditions] = ...,
         propagation_policy: typing.Optional[str] = ...
     ) -> None: ...
     def to_dict(self) -> V1DeleteOptionsDict: ...
@@ -30,5 +31,5 @@ class V1DeleteOptionsDict(typing.TypedDict, total=False):
     gracePeriodSeconds: typing.Optional[int]
     kind: typing.Optional[str]
     orphanDependents: typing.Optional[bool]
-    preconditions: typing.Optional[kubernetes.client.V1PreconditionsDict]
+    preconditions: typing.Optional[V1PreconditionsDict]
     propagationPolicy: typing.Optional[str]

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1DeploymentCondition:
     last_transition_time: typing.Optional[datetime.datetime]
     last_update_time: typing.Optional[datetime.datetime]

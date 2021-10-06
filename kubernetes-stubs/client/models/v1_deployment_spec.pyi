@@ -1,7 +1,12 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_deployment_strategy import (
+    V1DeploymentStrategy, V1DeploymentStrategyDict)
+from kubernetes.client.models.v1_label_selector import (V1LabelSelector,
+                                                        V1LabelSelectorDict)
+from kubernetes.client.models.v1_pod_template_spec import (
+    V1PodTemplateSpec, V1PodTemplateSpecDict)
 
 class V1DeploymentSpec:
     min_ready_seconds: typing.Optional[int]
@@ -9,9 +14,9 @@ class V1DeploymentSpec:
     progress_deadline_seconds: typing.Optional[int]
     replicas: typing.Optional[int]
     revision_history_limit: typing.Optional[int]
-    selector: kubernetes.client.V1LabelSelector
-    strategy: typing.Optional[kubernetes.client.V1DeploymentStrategy]
-    template: kubernetes.client.V1PodTemplateSpec
+    selector: V1LabelSelector
+    strategy: typing.Optional[V1DeploymentStrategy]
+    template: V1PodTemplateSpec
     def __init__(
         self,
         *,
@@ -20,9 +25,9 @@ class V1DeploymentSpec:
         progress_deadline_seconds: typing.Optional[int] = ...,
         replicas: typing.Optional[int] = ...,
         revision_history_limit: typing.Optional[int] = ...,
-        selector: kubernetes.client.V1LabelSelector,
-        strategy: typing.Optional[kubernetes.client.V1DeploymentStrategy] = ...,
-        template: kubernetes.client.V1PodTemplateSpec
+        selector: V1LabelSelector,
+        strategy: typing.Optional[V1DeploymentStrategy] = ...,
+        template: V1PodTemplateSpec
     ) -> None: ...
     def to_dict(self) -> V1DeploymentSpecDict: ...
 
@@ -32,6 +37,6 @@ class V1DeploymentSpecDict(typing.TypedDict, total=False):
     progressDeadlineSeconds: typing.Optional[int]
     replicas: typing.Optional[int]
     revisionHistoryLimit: typing.Optional[int]
-    selector: kubernetes.client.V1LabelSelectorDict
-    strategy: typing.Optional[kubernetes.client.V1DeploymentStrategyDict]
-    template: kubernetes.client.V1PodTemplateSpecDict
+    selector: V1LabelSelectorDict
+    strategy: typing.Optional[V1DeploymentStrategyDict]
+    template: V1PodTemplateSpecDict

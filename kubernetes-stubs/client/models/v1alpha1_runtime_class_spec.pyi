@@ -1,22 +1,25 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1alpha1_overhead import (V1alpha1Overhead,
+                                                        V1alpha1OverheadDict)
+from kubernetes.client.models.v1alpha1_scheduling import (
+    V1alpha1Scheduling, V1alpha1SchedulingDict)
 
 class V1alpha1RuntimeClassSpec:
-    overhead: typing.Optional[kubernetes.client.V1alpha1Overhead]
+    overhead: typing.Optional[V1alpha1Overhead]
     runtime_handler: str
-    scheduling: typing.Optional[kubernetes.client.V1alpha1Scheduling]
+    scheduling: typing.Optional[V1alpha1Scheduling]
     def __init__(
         self,
         *,
-        overhead: typing.Optional[kubernetes.client.V1alpha1Overhead] = ...,
+        overhead: typing.Optional[V1alpha1Overhead] = ...,
         runtime_handler: str,
-        scheduling: typing.Optional[kubernetes.client.V1alpha1Scheduling] = ...
+        scheduling: typing.Optional[V1alpha1Scheduling] = ...
     ) -> None: ...
     def to_dict(self) -> V1alpha1RuntimeClassSpecDict: ...
 
 class V1alpha1RuntimeClassSpecDict(typing.TypedDict, total=False):
-    overhead: typing.Optional[kubernetes.client.V1alpha1OverheadDict]
+    overhead: typing.Optional[V1alpha1OverheadDict]
     runtimeHandler: str
-    scheduling: typing.Optional[kubernetes.client.V1alpha1SchedulingDict]
+    scheduling: typing.Optional[V1alpha1SchedulingDict]

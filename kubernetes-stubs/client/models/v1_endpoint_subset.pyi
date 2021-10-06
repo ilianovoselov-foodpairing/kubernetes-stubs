@@ -1,30 +1,25 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_endpoint_address import (
+    V1EndpointAddress, V1EndpointAddressDict)
+from kubernetes.client.models.v1_endpoint_port import (V1EndpointPort,
+                                                       V1EndpointPortDict)
 
 class V1EndpointSubset:
-    addresses: typing.Optional[typing.List[kubernetes.client.V1EndpointAddress]]
-    not_ready_addresses: typing.Optional[
-        typing.List[kubernetes.client.V1EndpointAddress]
-    ]
-    ports: typing.Optional[typing.List[kubernetes.client.V1EndpointPort]]
+    addresses: typing.Optional[typing.List[V1EndpointAddress]]
+    not_ready_addresses: typing.Optional[typing.List[V1EndpointAddress]]
+    ports: typing.Optional[typing.List[V1EndpointPort]]
     def __init__(
         self,
         *,
-        addresses: typing.Optional[
-            typing.List[kubernetes.client.V1EndpointAddress]
-        ] = ...,
-        not_ready_addresses: typing.Optional[
-            typing.List[kubernetes.client.V1EndpointAddress]
-        ] = ...,
-        ports: typing.Optional[typing.List[kubernetes.client.V1EndpointPort]] = ...
+        addresses: typing.Optional[typing.List[V1EndpointAddress]] = ...,
+        not_ready_addresses: typing.Optional[typing.List[V1EndpointAddress]] = ...,
+        ports: typing.Optional[typing.List[V1EndpointPort]] = ...
     ) -> None: ...
     def to_dict(self) -> V1EndpointSubsetDict: ...
 
 class V1EndpointSubsetDict(typing.TypedDict, total=False):
-    addresses: typing.Optional[typing.List[kubernetes.client.V1EndpointAddressDict]]
-    notReadyAddresses: typing.Optional[
-        typing.List[kubernetes.client.V1EndpointAddressDict]
-    ]
-    ports: typing.Optional[typing.List[kubernetes.client.V1EndpointPortDict]]
+    addresses: typing.Optional[typing.List[V1EndpointAddressDict]]
+    notReadyAddresses: typing.Optional[typing.List[V1EndpointAddressDict]]
+    ports: typing.Optional[typing.List[V1EndpointPortDict]]

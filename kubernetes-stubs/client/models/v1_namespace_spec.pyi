@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1NamespaceSpec:
     finalizers: typing.Optional[typing.List[str]]
     def __init__(

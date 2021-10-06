@@ -1,14 +1,15 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_object_meta import (V1ObjectMeta,
+                                                     V1ObjectMetaDict)
 
 class V1alpha1PriorityClass:
     api_version: typing.Optional[str]
     description: typing.Optional[str]
     global_default: typing.Optional[bool]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ObjectMeta]
+    metadata: typing.Optional[V1ObjectMeta]
     preemption_policy: typing.Optional[str]
     value: int
     def __init__(
@@ -18,7 +19,7 @@ class V1alpha1PriorityClass:
         description: typing.Optional[str] = ...,
         global_default: typing.Optional[bool] = ...,
         kind: typing.Optional[str] = ...,
-        metadata: typing.Optional[kubernetes.client.V1ObjectMeta] = ...,
+        metadata: typing.Optional[V1ObjectMeta] = ...,
         preemption_policy: typing.Optional[str] = ...,
         value: int
     ) -> None: ...
@@ -29,6 +30,6 @@ class V1alpha1PriorityClassDict(typing.TypedDict, total=False):
     description: typing.Optional[str]
     globalDefault: typing.Optional[bool]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ObjectMetaDict]
+    metadata: typing.Optional[V1ObjectMetaDict]
     preemptionPolicy: typing.Optional[str]
     value: int

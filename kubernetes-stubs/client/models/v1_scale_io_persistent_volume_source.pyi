@@ -1,14 +1,15 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_secret_reference import (
+    V1SecretReference, V1SecretReferenceDict)
 
 class V1ScaleIOPersistentVolumeSource:
     fs_type: typing.Optional[str]
     gateway: str
     protection_domain: typing.Optional[str]
     read_only: typing.Optional[bool]
-    secret_ref: kubernetes.client.V1SecretReference
+    secret_ref: V1SecretReference
     ssl_enabled: typing.Optional[bool]
     storage_mode: typing.Optional[str]
     storage_pool: typing.Optional[str]
@@ -21,7 +22,7 @@ class V1ScaleIOPersistentVolumeSource:
         gateway: str,
         protection_domain: typing.Optional[str] = ...,
         read_only: typing.Optional[bool] = ...,
-        secret_ref: kubernetes.client.V1SecretReference,
+        secret_ref: V1SecretReference,
         ssl_enabled: typing.Optional[bool] = ...,
         storage_mode: typing.Optional[str] = ...,
         storage_pool: typing.Optional[str] = ...,
@@ -35,7 +36,7 @@ class V1ScaleIOPersistentVolumeSourceDict(typing.TypedDict, total=False):
     gateway: str
     protectionDomain: typing.Optional[str]
     readOnly: typing.Optional[bool]
-    secretRef: kubernetes.client.V1SecretReferenceDict
+    secretRef: V1SecretReferenceDict
     sslEnabled: typing.Optional[bool]
     storageMode: typing.Optional[str]
     storagePool: typing.Optional[str]

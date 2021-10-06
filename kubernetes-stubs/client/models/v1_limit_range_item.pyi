@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1LimitRangeItem:
     default: typing.Optional[typing.Dict[str, str]]
     default_request: typing.Optional[typing.Dict[str, str]]

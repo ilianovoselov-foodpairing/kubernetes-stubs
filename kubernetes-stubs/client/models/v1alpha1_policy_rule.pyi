@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1alpha1PolicyRule:
     api_groups: typing.Optional[typing.List[str]]
     non_resource_ur_ls: typing.Optional[typing.List[str]]

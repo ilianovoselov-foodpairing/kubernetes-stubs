@@ -1,25 +1,26 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_node_config_source import (
+    V1NodeConfigSource, V1NodeConfigSourceDict)
 
 class V1NodeConfigStatus:
-    active: typing.Optional[kubernetes.client.V1NodeConfigSource]
-    assigned: typing.Optional[kubernetes.client.V1NodeConfigSource]
+    active: typing.Optional[V1NodeConfigSource]
+    assigned: typing.Optional[V1NodeConfigSource]
     error: typing.Optional[str]
-    last_known_good: typing.Optional[kubernetes.client.V1NodeConfigSource]
+    last_known_good: typing.Optional[V1NodeConfigSource]
     def __init__(
         self,
         *,
-        active: typing.Optional[kubernetes.client.V1NodeConfigSource] = ...,
-        assigned: typing.Optional[kubernetes.client.V1NodeConfigSource] = ...,
+        active: typing.Optional[V1NodeConfigSource] = ...,
+        assigned: typing.Optional[V1NodeConfigSource] = ...,
         error: typing.Optional[str] = ...,
-        last_known_good: typing.Optional[kubernetes.client.V1NodeConfigSource] = ...
+        last_known_good: typing.Optional[V1NodeConfigSource] = ...
     ) -> None: ...
     def to_dict(self) -> V1NodeConfigStatusDict: ...
 
 class V1NodeConfigStatusDict(typing.TypedDict, total=False):
-    active: typing.Optional[kubernetes.client.V1NodeConfigSourceDict]
-    assigned: typing.Optional[kubernetes.client.V1NodeConfigSourceDict]
+    active: typing.Optional[V1NodeConfigSourceDict]
+    assigned: typing.Optional[V1NodeConfigSourceDict]
     error: typing.Optional[str]
-    lastKnownGood: typing.Optional[kubernetes.client.V1NodeConfigSourceDict]
+    lastKnownGood: typing.Optional[V1NodeConfigSourceDict]

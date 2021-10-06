@@ -1,7 +1,10 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_service_port import (V1ServicePort,
+                                                      V1ServicePortDict)
+from kubernetes.client.models.v1_session_affinity_config import (
+    V1SessionAffinityConfig, V1SessionAffinityConfigDict)
 
 class V1ServiceSpec:
     cluster_ip: typing.Optional[str]
@@ -12,11 +15,11 @@ class V1ServiceSpec:
     ip_family: typing.Optional[str]
     load_balancer_ip: typing.Optional[str]
     load_balancer_source_ranges: typing.Optional[typing.List[str]]
-    ports: typing.Optional[typing.List[kubernetes.client.V1ServicePort]]
+    ports: typing.Optional[typing.List[V1ServicePort]]
     publish_not_ready_addresses: typing.Optional[bool]
     selector: typing.Optional[typing.Dict[str, str]]
     session_affinity: typing.Optional[str]
-    session_affinity_config: typing.Optional[kubernetes.client.V1SessionAffinityConfig]
+    session_affinity_config: typing.Optional[V1SessionAffinityConfig]
     topology_keys: typing.Optional[typing.List[str]]
     type: typing.Optional[str]
     def __init__(
@@ -30,13 +33,11 @@ class V1ServiceSpec:
         ip_family: typing.Optional[str] = ...,
         load_balancer_ip: typing.Optional[str] = ...,
         load_balancer_source_ranges: typing.Optional[typing.List[str]] = ...,
-        ports: typing.Optional[typing.List[kubernetes.client.V1ServicePort]] = ...,
+        ports: typing.Optional[typing.List[V1ServicePort]] = ...,
         publish_not_ready_addresses: typing.Optional[bool] = ...,
         selector: typing.Optional[typing.Dict[str, str]] = ...,
         session_affinity: typing.Optional[str] = ...,
-        session_affinity_config: typing.Optional[
-            kubernetes.client.V1SessionAffinityConfig
-        ] = ...,
+        session_affinity_config: typing.Optional[V1SessionAffinityConfig] = ...,
         topology_keys: typing.Optional[typing.List[str]] = ...,
         type: typing.Optional[str] = ...
     ) -> None: ...
@@ -51,12 +52,10 @@ class V1ServiceSpecDict(typing.TypedDict, total=False):
     ipFamily: typing.Optional[str]
     loadBalancerIP: typing.Optional[str]
     loadBalancerSourceRanges: typing.Optional[typing.List[str]]
-    ports: typing.Optional[typing.List[kubernetes.client.V1ServicePortDict]]
+    ports: typing.Optional[typing.List[V1ServicePortDict]]
     publishNotReadyAddresses: typing.Optional[bool]
     selector: typing.Optional[typing.Dict[str, str]]
     sessionAffinity: typing.Optional[str]
-    sessionAffinityConfig: typing.Optional[
-        kubernetes.client.V1SessionAffinityConfigDict
-    ]
+    sessionAffinityConfig: typing.Optional[V1SessionAffinityConfigDict]
     topologyKeys: typing.Optional[typing.List[str]]
     type: typing.Optional[str]

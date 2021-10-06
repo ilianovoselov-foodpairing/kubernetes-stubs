@@ -1,24 +1,27 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_external_documentation import (
+    V1ExternalDocumentation, V1ExternalDocumentationDict)
+from kubernetes.client.models.v1_json_schema_props import (
+    V1JSONSchemaProps, V1JSONSchemaPropsDict)
 
 class V1JSONSchemaProps:
     ref: typing.Optional[str]
     schema: typing.Optional[str]
     additional_items: typing.Optional[typing.Any]
     additional_properties: typing.Optional[typing.Any]
-    all_of: typing.Optional[typing.List[kubernetes.client.V1JSONSchemaProps]]
-    any_of: typing.Optional[typing.List[kubernetes.client.V1JSONSchemaProps]]
+    all_of: typing.Optional[typing.List[V1JSONSchemaProps]]
+    any_of: typing.Optional[typing.List[V1JSONSchemaProps]]
     default: typing.Optional[typing.Any]
-    definitions: typing.Optional[typing.Dict[str, kubernetes.client.V1JSONSchemaProps]]
+    definitions: typing.Optional[typing.Dict[str, V1JSONSchemaProps]]
     dependencies: typing.Optional[typing.Dict[str, typing.Any]]
     description: typing.Optional[str]
     enum: typing.Optional[typing.List[typing.Any]]
     example: typing.Optional[typing.Any]
     exclusive_maximum: typing.Optional[bool]
     exclusive_minimum: typing.Optional[bool]
-    external_docs: typing.Optional[kubernetes.client.V1ExternalDocumentation]
+    external_docs: typing.Optional[V1ExternalDocumentation]
     format: typing.Optional[str]
     id: typing.Optional[str]
     items: typing.Optional[typing.Any]
@@ -31,14 +34,12 @@ class V1JSONSchemaProps:
     min_properties: typing.Optional[int]
     minimum: typing.Optional[float]
     multiple_of: typing.Optional[float]
-    _not: typing.Optional[kubernetes.client.V1JSONSchemaProps]
+    _not: typing.Optional[V1JSONSchemaProps]
     nullable: typing.Optional[bool]
-    one_of: typing.Optional[typing.List[kubernetes.client.V1JSONSchemaProps]]
+    one_of: typing.Optional[typing.List[V1JSONSchemaProps]]
     pattern: typing.Optional[str]
-    pattern_properties: typing.Optional[
-        typing.Dict[str, kubernetes.client.V1JSONSchemaProps]
-    ]
-    properties: typing.Optional[typing.Dict[str, kubernetes.client.V1JSONSchemaProps]]
+    pattern_properties: typing.Optional[typing.Dict[str, V1JSONSchemaProps]]
+    properties: typing.Optional[typing.Dict[str, V1JSONSchemaProps]]
     required: typing.Optional[typing.List[str]]
     title: typing.Optional[str]
     type: typing.Optional[str]
@@ -56,19 +57,17 @@ class V1JSONSchemaProps:
         schema: typing.Optional[str] = ...,
         additional_items: typing.Optional[typing.Any] = ...,
         additional_properties: typing.Optional[typing.Any] = ...,
-        all_of: typing.Optional[typing.List[kubernetes.client.V1JSONSchemaProps]] = ...,
-        any_of: typing.Optional[typing.List[kubernetes.client.V1JSONSchemaProps]] = ...,
+        all_of: typing.Optional[typing.List[V1JSONSchemaProps]] = ...,
+        any_of: typing.Optional[typing.List[V1JSONSchemaProps]] = ...,
         default: typing.Optional[typing.Any] = ...,
-        definitions: typing.Optional[
-            typing.Dict[str, kubernetes.client.V1JSONSchemaProps]
-        ] = ...,
+        definitions: typing.Optional[typing.Dict[str, V1JSONSchemaProps]] = ...,
         dependencies: typing.Optional[typing.Dict[str, typing.Any]] = ...,
         description: typing.Optional[str] = ...,
         enum: typing.Optional[typing.List[typing.Any]] = ...,
         example: typing.Optional[typing.Any] = ...,
         exclusive_maximum: typing.Optional[bool] = ...,
         exclusive_minimum: typing.Optional[bool] = ...,
-        external_docs: typing.Optional[kubernetes.client.V1ExternalDocumentation] = ...,
+        external_docs: typing.Optional[V1ExternalDocumentation] = ...,
         format: typing.Optional[str] = ...,
         id: typing.Optional[str] = ...,
         items: typing.Optional[typing.Any] = ...,
@@ -81,16 +80,12 @@ class V1JSONSchemaProps:
         min_properties: typing.Optional[int] = ...,
         minimum: typing.Optional[float] = ...,
         multiple_of: typing.Optional[float] = ...,
-        _not: typing.Optional[kubernetes.client.V1JSONSchemaProps] = ...,
+        _not: typing.Optional[V1JSONSchemaProps] = ...,
         nullable: typing.Optional[bool] = ...,
-        one_of: typing.Optional[typing.List[kubernetes.client.V1JSONSchemaProps]] = ...,
+        one_of: typing.Optional[typing.List[V1JSONSchemaProps]] = ...,
         pattern: typing.Optional[str] = ...,
-        pattern_properties: typing.Optional[
-            typing.Dict[str, kubernetes.client.V1JSONSchemaProps]
-        ] = ...,
-        properties: typing.Optional[
-            typing.Dict[str, kubernetes.client.V1JSONSchemaProps]
-        ] = ...,
+        pattern_properties: typing.Optional[typing.Dict[str, V1JSONSchemaProps]] = ...,
+        properties: typing.Optional[typing.Dict[str, V1JSONSchemaProps]] = ...,
         required: typing.Optional[typing.List[str]] = ...,
         title: typing.Optional[str] = ...,
         type: typing.Optional[str] = ...,
@@ -109,19 +104,17 @@ class V1JSONSchemaPropsDict(typing.TypedDict, total=False):
     schema: typing.Optional[str]
     additionalItems: typing.Optional[typing.Any]
     additionalProperties: typing.Optional[typing.Any]
-    allOf: typing.Optional[typing.List[kubernetes.client.V1JSONSchemaPropsDict]]
-    anyOf: typing.Optional[typing.List[kubernetes.client.V1JSONSchemaPropsDict]]
+    allOf: typing.Optional[typing.List[V1JSONSchemaPropsDict]]
+    anyOf: typing.Optional[typing.List[V1JSONSchemaPropsDict]]
     default: typing.Optional[typing.Any]
-    definitions: typing.Optional[
-        typing.Dict[str, kubernetes.client.V1JSONSchemaPropsDict]
-    ]
+    definitions: typing.Optional[typing.Dict[str, V1JSONSchemaPropsDict]]
     dependencies: typing.Optional[typing.Dict[str, typing.Any]]
     description: typing.Optional[str]
     enum: typing.Optional[typing.List[typing.Any]]
     example: typing.Optional[typing.Any]
     exclusiveMaximum: typing.Optional[bool]
     exclusiveMinimum: typing.Optional[bool]
-    externalDocs: typing.Optional[kubernetes.client.V1ExternalDocumentationDict]
+    externalDocs: typing.Optional[V1ExternalDocumentationDict]
     format: typing.Optional[str]
     id: typing.Optional[str]
     items: typing.Optional[typing.Any]
@@ -134,16 +127,12 @@ class V1JSONSchemaPropsDict(typing.TypedDict, total=False):
     minProperties: typing.Optional[int]
     minimum: typing.Optional[float]
     multipleOf: typing.Optional[float]
-    _not: typing.Optional[kubernetes.client.V1JSONSchemaPropsDict]
+    _not: typing.Optional[V1JSONSchemaPropsDict]
     nullable: typing.Optional[bool]
-    oneOf: typing.Optional[typing.List[kubernetes.client.V1JSONSchemaPropsDict]]
+    oneOf: typing.Optional[typing.List[V1JSONSchemaPropsDict]]
     pattern: typing.Optional[str]
-    patternProperties: typing.Optional[
-        typing.Dict[str, kubernetes.client.V1JSONSchemaPropsDict]
-    ]
-    properties: typing.Optional[
-        typing.Dict[str, kubernetes.client.V1JSONSchemaPropsDict]
-    ]
+    patternProperties: typing.Optional[typing.Dict[str, V1JSONSchemaPropsDict]]
+    properties: typing.Optional[typing.Dict[str, V1JSONSchemaPropsDict]]
     required: typing.Optional[typing.List[str]]
     title: typing.Optional[str]
     type: typing.Optional[str]

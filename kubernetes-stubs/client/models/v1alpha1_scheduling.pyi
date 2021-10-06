@@ -1,19 +1,20 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_toleration import (V1Toleration,
+                                                    V1TolerationDict)
 
 class V1alpha1Scheduling:
     node_selector: typing.Optional[typing.Dict[str, str]]
-    tolerations: typing.Optional[typing.List[kubernetes.client.V1Toleration]]
+    tolerations: typing.Optional[typing.List[V1Toleration]]
     def __init__(
         self,
         *,
         node_selector: typing.Optional[typing.Dict[str, str]] = ...,
-        tolerations: typing.Optional[typing.List[kubernetes.client.V1Toleration]] = ...
+        tolerations: typing.Optional[typing.List[V1Toleration]] = ...
     ) -> None: ...
     def to_dict(self) -> V1alpha1SchedulingDict: ...
 
 class V1alpha1SchedulingDict(typing.TypedDict, total=False):
     nodeSelector: typing.Optional[typing.Dict[str, str]]
-    tolerations: typing.Optional[typing.List[kubernetes.client.V1TolerationDict]]
+    tolerations: typing.Optional[typing.List[V1TolerationDict]]

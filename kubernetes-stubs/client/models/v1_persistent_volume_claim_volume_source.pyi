@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1PersistentVolumeClaimVolumeSource:
     claim_name: str
     read_only: typing.Optional[bool]

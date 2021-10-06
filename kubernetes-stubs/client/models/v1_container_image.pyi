@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ContainerImage:
     names: typing.List[str]
     size_bytes: typing.Optional[int]

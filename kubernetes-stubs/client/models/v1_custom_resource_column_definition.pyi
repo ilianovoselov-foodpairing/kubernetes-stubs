@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1CustomResourceColumnDefinition:
     description: typing.Optional[str]
     format: typing.Optional[str]

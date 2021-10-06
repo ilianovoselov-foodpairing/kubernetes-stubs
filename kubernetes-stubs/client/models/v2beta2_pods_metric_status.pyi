@@ -1,19 +1,19 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v2beta2_metric_identifier import (
+    V2beta2MetricIdentifier, V2beta2MetricIdentifierDict)
+from kubernetes.client.models.v2beta2_metric_value_status import (
+    V2beta2MetricValueStatus, V2beta2MetricValueStatusDict)
 
 class V2beta2PodsMetricStatus:
-    current: kubernetes.client.V2beta2MetricValueStatus
-    metric: kubernetes.client.V2beta2MetricIdentifier
+    current: V2beta2MetricValueStatus
+    metric: V2beta2MetricIdentifier
     def __init__(
-        self,
-        *,
-        current: kubernetes.client.V2beta2MetricValueStatus,
-        metric: kubernetes.client.V2beta2MetricIdentifier
+        self, *, current: V2beta2MetricValueStatus, metric: V2beta2MetricIdentifier
     ) -> None: ...
     def to_dict(self) -> V2beta2PodsMetricStatusDict: ...
 
 class V2beta2PodsMetricStatusDict(typing.TypedDict, total=False):
-    current: kubernetes.client.V2beta2MetricValueStatusDict
-    metric: kubernetes.client.V2beta2MetricIdentifierDict
+    current: V2beta2MetricValueStatusDict
+    metric: V2beta2MetricIdentifierDict

@@ -1,12 +1,15 @@
 import typing
 
-import kubernetes.client
+from kubernetes.client.api_client import ApiClient
+from kubernetes.client.models.v1_api_resource_list import V1APIResourceList
+from kubernetes.client.models.v1_delete_options import V1DeleteOptions
+from kubernetes.client.models.v1_status import V1Status
+from kubernetes.client.models.v1beta1_event import V1beta1Event
+from kubernetes.client.models.v1beta1_event_list import V1beta1EventList
 
 class EventsV1beta1Api:
-    def __init__(
-        self, api_client: typing.Optional[kubernetes.client.ApiClient] = ...
-    ) -> None: ...
-    def get_api_resources(self) -> kubernetes.client.V1APIResourceList: ...
+    def __init__(self, api_client: typing.Optional[ApiClient] = ...) -> None: ...
+    def get_api_resources(self) -> V1APIResourceList: ...
     def list_event_for_all_namespaces(
         self,
         *,
@@ -19,7 +22,7 @@ class EventsV1beta1Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1beta1EventList: ...
+    ) -> V1beta1EventList: ...
     def list_namespaced_event(
         self,
         namespace: str,
@@ -33,22 +36,22 @@ class EventsV1beta1Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1beta1EventList: ...
+    ) -> V1beta1EventList: ...
     def create_namespaced_event(
         self,
         namespace: str,
-        body: kubernetes.client.V1beta1Event,
+        body: V1beta1Event,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1beta1Event: ...
+    ) -> V1beta1Event: ...
     def delete_collection_namespaced_event(
         self,
         namespace: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         _continue: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_selector: typing.Optional[str] = ...,
@@ -59,7 +62,7 @@ class EventsV1beta1Api:
         propagation_policy: typing.Optional[str] = ...,
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def read_namespaced_event(
         self,
         name: str,
@@ -68,29 +71,29 @@ class EventsV1beta1Api:
         pretty: typing.Optional[str] = ...,
         exact: typing.Optional[bool] = ...,
         export: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1beta1Event: ...
+    ) -> V1beta1Event: ...
     def replace_namespaced_event(
         self,
         name: str,
         namespace: str,
-        body: kubernetes.client.V1beta1Event,
+        body: V1beta1Event,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1beta1Event: ...
+    ) -> V1beta1Event: ...
     def delete_namespaced_event(
         self,
         name: str,
         namespace: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         dry_run: typing.Optional[str] = ...,
         grace_period_seconds: typing.Optional[int] = ...,
         orphan_dependents: typing.Optional[bool] = ...,
         propagation_policy: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def patch_namespaced_event(
         self,
         name: str,
@@ -101,4 +104,4 @@ class EventsV1beta1Api:
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...,
         force: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V1beta1Event: ...
+    ) -> V1beta1Event: ...

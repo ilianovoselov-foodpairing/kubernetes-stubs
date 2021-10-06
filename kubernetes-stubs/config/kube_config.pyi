@@ -1,6 +1,7 @@
 from typing import Any, Optional, TypedDict
 
-from kubernetes.client import ApiClient, Configuration
+from kubernetes.client.api_client import ApiClient
+from kubernetes.client.configuration import Configuration
 
 KUBE_CONFIG_DEFAULT_LOCATION: str = ...
 

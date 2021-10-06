@@ -1,30 +1,31 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_container_state import (V1ContainerState,
+                                                         V1ContainerStateDict)
 
 class V1ContainerStatus:
     container_id: typing.Optional[str]
     image: str
     image_id: str
-    last_state: typing.Optional[kubernetes.client.V1ContainerState]
+    last_state: typing.Optional[V1ContainerState]
     name: str
     ready: bool
     restart_count: int
     started: typing.Optional[bool]
-    state: typing.Optional[kubernetes.client.V1ContainerState]
+    state: typing.Optional[V1ContainerState]
     def __init__(
         self,
         *,
         container_id: typing.Optional[str] = ...,
         image: str,
         image_id: str,
-        last_state: typing.Optional[kubernetes.client.V1ContainerState] = ...,
+        last_state: typing.Optional[V1ContainerState] = ...,
         name: str,
         ready: bool,
         restart_count: int,
         started: typing.Optional[bool] = ...,
-        state: typing.Optional[kubernetes.client.V1ContainerState] = ...
+        state: typing.Optional[V1ContainerState] = ...
     ) -> None: ...
     def to_dict(self) -> V1ContainerStatusDict: ...
 
@@ -32,9 +33,9 @@ class V1ContainerStatusDict(typing.TypedDict, total=False):
     containerID: typing.Optional[str]
     image: str
     imageID: str
-    lastState: typing.Optional[kubernetes.client.V1ContainerStateDict]
+    lastState: typing.Optional[V1ContainerStateDict]
     name: str
     ready: bool
     restartCount: int
     started: typing.Optional[bool]
-    state: typing.Optional[kubernetes.client.V1ContainerStateDict]
+    state: typing.Optional[V1ContainerStateDict]

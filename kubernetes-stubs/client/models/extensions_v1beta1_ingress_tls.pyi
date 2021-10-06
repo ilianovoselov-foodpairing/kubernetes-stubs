@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class ExtensionsV1beta1IngressTLS:
     hosts: typing.Optional[typing.List[str]]
     secret_name: typing.Optional[str]

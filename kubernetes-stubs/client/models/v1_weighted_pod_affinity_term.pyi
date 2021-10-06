@@ -1,16 +1,17 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_pod_affinity_term import (
+    V1PodAffinityTerm, V1PodAffinityTermDict)
 
 class V1WeightedPodAffinityTerm:
-    pod_affinity_term: kubernetes.client.V1PodAffinityTerm
+    pod_affinity_term: V1PodAffinityTerm
     weight: int
     def __init__(
-        self, *, pod_affinity_term: kubernetes.client.V1PodAffinityTerm, weight: int
+        self, *, pod_affinity_term: V1PodAffinityTerm, weight: int
     ) -> None: ...
     def to_dict(self) -> V1WeightedPodAffinityTermDict: ...
 
 class V1WeightedPodAffinityTermDict(typing.TypedDict, total=False):
-    podAffinityTerm: kubernetes.client.V1PodAffinityTermDict
+    podAffinityTerm: V1PodAffinityTermDict
     weight: int

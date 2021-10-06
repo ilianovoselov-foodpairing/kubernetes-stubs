@@ -1,16 +1,15 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_config_map_node_config_source import (
+    V1ConfigMapNodeConfigSource, V1ConfigMapNodeConfigSourceDict)
 
 class V1NodeConfigSource:
-    config_map: typing.Optional[kubernetes.client.V1ConfigMapNodeConfigSource]
+    config_map: typing.Optional[V1ConfigMapNodeConfigSource]
     def __init__(
-        self,
-        *,
-        config_map: typing.Optional[kubernetes.client.V1ConfigMapNodeConfigSource] = ...
+        self, *, config_map: typing.Optional[V1ConfigMapNodeConfigSource] = ...
     ) -> None: ...
     def to_dict(self) -> V1NodeConfigSourceDict: ...
 
 class V1NodeConfigSourceDict(typing.TypedDict, total=False):
-    configMap: typing.Optional[kubernetes.client.V1ConfigMapNodeConfigSourceDict]
+    configMap: typing.Optional[V1ConfigMapNodeConfigSourceDict]

@@ -1,12 +1,13 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_object_reference import (
+    V1ObjectReference, V1ObjectReferenceDict)
 
 class V1StorageOSPersistentVolumeSource:
     fs_type: typing.Optional[str]
     read_only: typing.Optional[bool]
-    secret_ref: typing.Optional[kubernetes.client.V1ObjectReference]
+    secret_ref: typing.Optional[V1ObjectReference]
     volume_name: typing.Optional[str]
     volume_namespace: typing.Optional[str]
     def __init__(
@@ -14,7 +15,7 @@ class V1StorageOSPersistentVolumeSource:
         *,
         fs_type: typing.Optional[str] = ...,
         read_only: typing.Optional[bool] = ...,
-        secret_ref: typing.Optional[kubernetes.client.V1ObjectReference] = ...,
+        secret_ref: typing.Optional[V1ObjectReference] = ...,
         volume_name: typing.Optional[str] = ...,
         volume_namespace: typing.Optional[str] = ...
     ) -> None: ...
@@ -23,6 +24,6 @@ class V1StorageOSPersistentVolumeSource:
 class V1StorageOSPersistentVolumeSourceDict(typing.TypedDict, total=False):
     fsType: typing.Optional[str]
     readOnly: typing.Optional[bool]
-    secretRef: typing.Optional[kubernetes.client.V1ObjectReferenceDict]
+    secretRef: typing.Optional[V1ObjectReferenceDict]
     volumeName: typing.Optional[str]
     volumeNamespace: typing.Optional[str]

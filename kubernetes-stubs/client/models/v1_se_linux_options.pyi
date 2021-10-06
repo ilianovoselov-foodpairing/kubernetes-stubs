@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1SELinuxOptions:
     level: typing.Optional[str]
     role: typing.Optional[str]

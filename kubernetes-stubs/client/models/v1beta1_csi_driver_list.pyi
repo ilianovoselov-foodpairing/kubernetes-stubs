@@ -1,25 +1,27 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_list_meta import V1ListMeta, V1ListMetaDict
+from kubernetes.client.models.v1beta1_csi_driver import (V1beta1CSIDriver,
+                                                         V1beta1CSIDriverDict)
 
 class V1beta1CSIDriverList:
     api_version: typing.Optional[str]
-    items: typing.List[kubernetes.client.V1beta1CSIDriver]
+    items: typing.List[V1beta1CSIDriver]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ListMeta]
+    metadata: typing.Optional[V1ListMeta]
     def __init__(
         self,
         *,
         api_version: typing.Optional[str] = ...,
-        items: typing.List[kubernetes.client.V1beta1CSIDriver],
+        items: typing.List[V1beta1CSIDriver],
         kind: typing.Optional[str] = ...,
-        metadata: typing.Optional[kubernetes.client.V1ListMeta] = ...
+        metadata: typing.Optional[V1ListMeta] = ...
     ) -> None: ...
     def to_dict(self) -> V1beta1CSIDriverListDict: ...
 
 class V1beta1CSIDriverListDict(typing.TypedDict, total=False):
     apiVersion: typing.Optional[str]
-    items: typing.List[kubernetes.client.V1beta1CSIDriverDict]
+    items: typing.List[V1beta1CSIDriverDict]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ListMetaDict]
+    metadata: typing.Optional[V1ListMetaDict]

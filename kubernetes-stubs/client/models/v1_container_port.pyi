@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ContainerPort:
     container_port: int
     host_ip: typing.Optional[str]

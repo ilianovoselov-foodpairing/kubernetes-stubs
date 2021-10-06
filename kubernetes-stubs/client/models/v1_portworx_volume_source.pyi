@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1PortworxVolumeSource:
     fs_type: typing.Optional[str]
     read_only: typing.Optional[bool]

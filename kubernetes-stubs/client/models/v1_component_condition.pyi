@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ComponentCondition:
     error: typing.Optional[str]
     message: typing.Optional[str]

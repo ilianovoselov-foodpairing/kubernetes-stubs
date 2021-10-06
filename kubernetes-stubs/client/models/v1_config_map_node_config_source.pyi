@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ConfigMapNodeConfigSource:
     kubelet_config_key: str
     name: str

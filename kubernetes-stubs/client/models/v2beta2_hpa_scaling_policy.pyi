@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V2beta2HPAScalingPolicy:
     period_seconds: int
     type: str

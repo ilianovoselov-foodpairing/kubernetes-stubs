@@ -1,10 +1,11 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_status_cause import (V1StatusCause,
+                                                      V1StatusCauseDict)
 
 class V1StatusDetails:
-    causes: typing.Optional[typing.List[kubernetes.client.V1StatusCause]]
+    causes: typing.Optional[typing.List[V1StatusCause]]
     group: typing.Optional[str]
     kind: typing.Optional[str]
     name: typing.Optional[str]
@@ -13,7 +14,7 @@ class V1StatusDetails:
     def __init__(
         self,
         *,
-        causes: typing.Optional[typing.List[kubernetes.client.V1StatusCause]] = ...,
+        causes: typing.Optional[typing.List[V1StatusCause]] = ...,
         group: typing.Optional[str] = ...,
         kind: typing.Optional[str] = ...,
         name: typing.Optional[str] = ...,
@@ -23,7 +24,7 @@ class V1StatusDetails:
     def to_dict(self) -> V1StatusDetailsDict: ...
 
 class V1StatusDetailsDict(typing.TypedDict, total=False):
-    causes: typing.Optional[typing.List[kubernetes.client.V1StatusCauseDict]]
+    causes: typing.Optional[typing.List[V1StatusCauseDict]]
     group: typing.Optional[str]
     kind: typing.Optional[str]
     name: typing.Optional[str]

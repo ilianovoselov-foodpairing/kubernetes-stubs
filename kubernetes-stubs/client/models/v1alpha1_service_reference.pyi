@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1alpha1ServiceReference:
     name: str
     namespace: str

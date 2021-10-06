@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1LoadBalancerIngress:
     hostname: typing.Optional[str]
     ip: typing.Optional[str]

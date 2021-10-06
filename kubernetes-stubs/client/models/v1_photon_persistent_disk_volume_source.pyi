@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1PhotonPersistentDiskVolumeSource:
     fs_type: typing.Optional[str]
     pd_id: str

@@ -1,19 +1,19 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1beta1_certificate_signing_request_condition import (
+    V1beta1CertificateSigningRequestCondition,
+    V1beta1CertificateSigningRequestConditionDict)
 
 class V1beta1CertificateSigningRequestStatus:
     certificate: typing.Optional[str]
-    conditions: typing.Optional[
-        typing.List[kubernetes.client.V1beta1CertificateSigningRequestCondition]
-    ]
+    conditions: typing.Optional[typing.List[V1beta1CertificateSigningRequestCondition]]
     def __init__(
         self,
         *,
         certificate: typing.Optional[str] = ...,
         conditions: typing.Optional[
-            typing.List[kubernetes.client.V1beta1CertificateSigningRequestCondition]
+            typing.List[V1beta1CertificateSigningRequestCondition]
         ] = ...
     ) -> None: ...
     def to_dict(self) -> V1beta1CertificateSigningRequestStatusDict: ...
@@ -21,5 +21,5 @@ class V1beta1CertificateSigningRequestStatus:
 class V1beta1CertificateSigningRequestStatusDict(typing.TypedDict, total=False):
     certificate: typing.Optional[str]
     conditions: typing.Optional[
-        typing.List[kubernetes.client.V1beta1CertificateSigningRequestConditionDict]
+        typing.List[V1beta1CertificateSigningRequestConditionDict]
     ]

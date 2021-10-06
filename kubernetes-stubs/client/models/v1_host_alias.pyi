@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1HostAlias:
     hostnames: typing.Optional[typing.List[str]]
     ip: typing.Optional[str]

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ContainerStateRunning:
     started_at: typing.Optional[datetime.datetime]
     def __init__(

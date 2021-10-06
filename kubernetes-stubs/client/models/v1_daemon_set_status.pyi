@@ -1,11 +1,12 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_daemon_set_condition import (
+    V1DaemonSetCondition, V1DaemonSetConditionDict)
 
 class V1DaemonSetStatus:
     collision_count: typing.Optional[int]
-    conditions: typing.Optional[typing.List[kubernetes.client.V1DaemonSetCondition]]
+    conditions: typing.Optional[typing.List[V1DaemonSetCondition]]
     current_number_scheduled: int
     desired_number_scheduled: int
     number_available: typing.Optional[int]
@@ -18,9 +19,7 @@ class V1DaemonSetStatus:
         self,
         *,
         collision_count: typing.Optional[int] = ...,
-        conditions: typing.Optional[
-            typing.List[kubernetes.client.V1DaemonSetCondition]
-        ] = ...,
+        conditions: typing.Optional[typing.List[V1DaemonSetCondition]] = ...,
         current_number_scheduled: int,
         desired_number_scheduled: int,
         number_available: typing.Optional[int] = ...,
@@ -34,7 +33,7 @@ class V1DaemonSetStatus:
 
 class V1DaemonSetStatusDict(typing.TypedDict, total=False):
     collisionCount: typing.Optional[int]
-    conditions: typing.Optional[typing.List[kubernetes.client.V1DaemonSetConditionDict]]
+    conditions: typing.Optional[typing.List[V1DaemonSetConditionDict]]
     currentNumberScheduled: int
     desiredNumberScheduled: int
     numberAvailable: typing.Optional[int]

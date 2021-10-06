@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class ApiextensionsV1ServiceReference:
     name: str
     namespace: str

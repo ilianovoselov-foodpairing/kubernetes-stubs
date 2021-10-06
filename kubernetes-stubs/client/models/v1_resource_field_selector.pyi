@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ResourceFieldSelector:
     container_name: typing.Optional[str]
     divisor: typing.Optional[str]

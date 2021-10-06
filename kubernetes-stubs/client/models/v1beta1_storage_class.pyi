@@ -1,16 +1,17 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_object_meta import (V1ObjectMeta,
+                                                     V1ObjectMetaDict)
+from kubernetes.client.models.v1_topology_selector_term import (
+    V1TopologySelectorTerm, V1TopologySelectorTermDict)
 
 class V1beta1StorageClass:
     allow_volume_expansion: typing.Optional[bool]
-    allowed_topologies: typing.Optional[
-        typing.List[kubernetes.client.V1TopologySelectorTerm]
-    ]
+    allowed_topologies: typing.Optional[typing.List[V1TopologySelectorTerm]]
     api_version: typing.Optional[str]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ObjectMeta]
+    metadata: typing.Optional[V1ObjectMeta]
     mount_options: typing.Optional[typing.List[str]]
     parameters: typing.Optional[typing.Dict[str, str]]
     provisioner: str
@@ -20,12 +21,10 @@ class V1beta1StorageClass:
         self,
         *,
         allow_volume_expansion: typing.Optional[bool] = ...,
-        allowed_topologies: typing.Optional[
-            typing.List[kubernetes.client.V1TopologySelectorTerm]
-        ] = ...,
+        allowed_topologies: typing.Optional[typing.List[V1TopologySelectorTerm]] = ...,
         api_version: typing.Optional[str] = ...,
         kind: typing.Optional[str] = ...,
-        metadata: typing.Optional[kubernetes.client.V1ObjectMeta] = ...,
+        metadata: typing.Optional[V1ObjectMeta] = ...,
         mount_options: typing.Optional[typing.List[str]] = ...,
         parameters: typing.Optional[typing.Dict[str, str]] = ...,
         provisioner: str,
@@ -36,12 +35,10 @@ class V1beta1StorageClass:
 
 class V1beta1StorageClassDict(typing.TypedDict, total=False):
     allowVolumeExpansion: typing.Optional[bool]
-    allowedTopologies: typing.Optional[
-        typing.List[kubernetes.client.V1TopologySelectorTermDict]
-    ]
+    allowedTopologies: typing.Optional[typing.List[V1TopologySelectorTermDict]]
     apiVersion: typing.Optional[str]
     kind: typing.Optional[str]
-    metadata: typing.Optional[kubernetes.client.V1ObjectMetaDict]
+    metadata: typing.Optional[V1ObjectMetaDict]
     mountOptions: typing.Optional[typing.List[str]]
     parameters: typing.Optional[typing.Dict[str, str]]
     provisioner: str

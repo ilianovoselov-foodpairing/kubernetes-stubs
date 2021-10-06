@@ -1,12 +1,15 @@
 import typing
 
-import kubernetes.client
+from kubernetes.client.api_client import ApiClient
+from kubernetes.client.models.v1_api_resource_list import V1APIResourceList
+from kubernetes.client.models.v1_delete_options import V1DeleteOptions
+from kubernetes.client.models.v1_status import V1Status
+from kubernetes.client.models.v2alpha1_cron_job import V2alpha1CronJob
+from kubernetes.client.models.v2alpha1_cron_job_list import V2alpha1CronJobList
 
 class BatchV2alpha1Api:
-    def __init__(
-        self, api_client: typing.Optional[kubernetes.client.ApiClient] = ...
-    ) -> None: ...
-    def get_api_resources(self) -> kubernetes.client.V1APIResourceList: ...
+    def __init__(self, api_client: typing.Optional[ApiClient] = ...) -> None: ...
+    def get_api_resources(self) -> V1APIResourceList: ...
     def list_cron_job_for_all_namespaces(
         self,
         *,
@@ -19,7 +22,7 @@ class BatchV2alpha1Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2alpha1CronJobList: ...
+    ) -> V2alpha1CronJobList: ...
     def list_namespaced_cron_job(
         self,
         namespace: str,
@@ -33,22 +36,22 @@ class BatchV2alpha1Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2alpha1CronJobList: ...
+    ) -> V2alpha1CronJobList: ...
     def create_namespaced_cron_job(
         self,
         namespace: str,
-        body: kubernetes.client.V2alpha1CronJob,
+        body: V2alpha1CronJob,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V2alpha1CronJob: ...
+    ) -> V2alpha1CronJob: ...
     def delete_collection_namespaced_cron_job(
         self,
         namespace: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         _continue: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_selector: typing.Optional[str] = ...,
@@ -59,7 +62,7 @@ class BatchV2alpha1Api:
         propagation_policy: typing.Optional[str] = ...,
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def read_namespaced_cron_job(
         self,
         name: str,
@@ -68,29 +71,29 @@ class BatchV2alpha1Api:
         pretty: typing.Optional[str] = ...,
         exact: typing.Optional[bool] = ...,
         export: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2alpha1CronJob: ...
+    ) -> V2alpha1CronJob: ...
     def replace_namespaced_cron_job(
         self,
         name: str,
         namespace: str,
-        body: kubernetes.client.V2alpha1CronJob,
+        body: V2alpha1CronJob,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V2alpha1CronJob: ...
+    ) -> V2alpha1CronJob: ...
     def delete_namespaced_cron_job(
         self,
         name: str,
         namespace: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         dry_run: typing.Optional[str] = ...,
         grace_period_seconds: typing.Optional[int] = ...,
         orphan_dependents: typing.Optional[bool] = ...,
         propagation_policy: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def patch_namespaced_cron_job(
         self,
         name: str,
@@ -101,20 +104,20 @@ class BatchV2alpha1Api:
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...,
         force: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2alpha1CronJob: ...
+    ) -> V2alpha1CronJob: ...
     def read_namespaced_cron_job_status(
         self, name: str, namespace: str, *, pretty: typing.Optional[str] = ...
-    ) -> kubernetes.client.V2alpha1CronJob: ...
+    ) -> V2alpha1CronJob: ...
     def replace_namespaced_cron_job_status(
         self,
         name: str,
         namespace: str,
-        body: kubernetes.client.V2alpha1CronJob,
+        body: V2alpha1CronJob,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V2alpha1CronJob: ...
+    ) -> V2alpha1CronJob: ...
     def patch_namespaced_cron_job_status(
         self,
         name: str,
@@ -125,4 +128,4 @@ class BatchV2alpha1Api:
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...,
         force: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2alpha1CronJob: ...
+    ) -> V2alpha1CronJob: ...

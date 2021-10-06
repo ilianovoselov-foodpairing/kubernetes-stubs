@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1FCVolumeSource:
     fs_type: typing.Optional[str]
     lun: typing.Optional[int]

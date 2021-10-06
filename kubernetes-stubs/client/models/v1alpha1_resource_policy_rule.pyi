@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1alpha1ResourcePolicyRule:
     api_groups: typing.List[str]
     cluster_scope: typing.Optional[bool]

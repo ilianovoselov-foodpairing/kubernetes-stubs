@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1alpha1FlowSchemaCondition:
     last_transition_time: typing.Optional[datetime.datetime]
     message: typing.Optional[str]

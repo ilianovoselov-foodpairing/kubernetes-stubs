@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ServicePort:
     app_protocol: typing.Optional[str]
     name: typing.Optional[str]

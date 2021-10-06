@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1beta1UserInfo:
     extra: typing.Optional[typing.Dict[str, typing.List[str]]]
     groups: typing.Optional[typing.List[str]]

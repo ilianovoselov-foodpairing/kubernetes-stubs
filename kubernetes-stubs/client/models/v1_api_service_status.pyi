@@ -1,20 +1,15 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_api_service_condition import (
+    V1APIServiceCondition, V1APIServiceConditionDict)
 
 class V1APIServiceStatus:
-    conditions: typing.Optional[typing.List[kubernetes.client.V1APIServiceCondition]]
+    conditions: typing.Optional[typing.List[V1APIServiceCondition]]
     def __init__(
-        self,
-        *,
-        conditions: typing.Optional[
-            typing.List[kubernetes.client.V1APIServiceCondition]
-        ] = ...
+        self, *, conditions: typing.Optional[typing.List[V1APIServiceCondition]] = ...
     ) -> None: ...
     def to_dict(self) -> V1APIServiceStatusDict: ...
 
 class V1APIServiceStatusDict(typing.TypedDict, total=False):
-    conditions: typing.Optional[
-        typing.List[kubernetes.client.V1APIServiceConditionDict]
-    ]
+    conditions: typing.Optional[typing.List[V1APIServiceConditionDict]]

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ResourceRule:
     api_groups: typing.Optional[typing.List[str]]
     resource_names: typing.Optional[typing.List[str]]

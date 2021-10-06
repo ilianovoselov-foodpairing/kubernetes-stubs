@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ResourceRequirements:
     limits: typing.Optional[typing.Dict[str, str]]
     requests: typing.Optional[typing.Dict[str, str]]

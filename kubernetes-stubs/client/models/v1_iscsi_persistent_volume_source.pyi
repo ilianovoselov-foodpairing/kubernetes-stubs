@@ -1,7 +1,8 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_secret_reference import (
+    V1SecretReference, V1SecretReferenceDict)
 
 class V1ISCSIPersistentVolumeSource:
     chap_auth_discovery: typing.Optional[bool]
@@ -13,7 +14,7 @@ class V1ISCSIPersistentVolumeSource:
     lun: int
     portals: typing.Optional[typing.List[str]]
     read_only: typing.Optional[bool]
-    secret_ref: typing.Optional[kubernetes.client.V1SecretReference]
+    secret_ref: typing.Optional[V1SecretReference]
     target_portal: str
     def __init__(
         self,
@@ -27,7 +28,7 @@ class V1ISCSIPersistentVolumeSource:
         lun: int,
         portals: typing.Optional[typing.List[str]] = ...,
         read_only: typing.Optional[bool] = ...,
-        secret_ref: typing.Optional[kubernetes.client.V1SecretReference] = ...,
+        secret_ref: typing.Optional[V1SecretReference] = ...,
         target_portal: str
     ) -> None: ...
     def to_dict(self) -> V1ISCSIPersistentVolumeSourceDict: ...
@@ -42,5 +43,5 @@ class V1ISCSIPersistentVolumeSourceDict(typing.TypedDict, total=False):
     lun: int
     portals: typing.Optional[typing.List[str]]
     readOnly: typing.Optional[bool]
-    secretRef: typing.Optional[kubernetes.client.V1SecretReferenceDict]
+    secretRef: typing.Optional[V1SecretReferenceDict]
     targetPortal: str

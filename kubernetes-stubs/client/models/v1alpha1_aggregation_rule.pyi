@@ -1,22 +1,17 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_label_selector import (V1LabelSelector,
+                                                        V1LabelSelectorDict)
 
 class V1alpha1AggregationRule:
-    cluster_role_selectors: typing.Optional[
-        typing.List[kubernetes.client.V1LabelSelector]
-    ]
+    cluster_role_selectors: typing.Optional[typing.List[V1LabelSelector]]
     def __init__(
         self,
         *,
-        cluster_role_selectors: typing.Optional[
-            typing.List[kubernetes.client.V1LabelSelector]
-        ] = ...
+        cluster_role_selectors: typing.Optional[typing.List[V1LabelSelector]] = ...
     ) -> None: ...
     def to_dict(self) -> V1alpha1AggregationRuleDict: ...
 
 class V1alpha1AggregationRuleDict(typing.TypedDict, total=False):
-    clusterRoleSelectors: typing.Optional[
-        typing.List[kubernetes.client.V1LabelSelectorDict]
-    ]
+    clusterRoleSelectors: typing.Optional[typing.List[V1LabelSelectorDict]]

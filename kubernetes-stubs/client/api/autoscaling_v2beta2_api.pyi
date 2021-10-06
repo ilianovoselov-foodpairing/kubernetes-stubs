@@ -1,12 +1,17 @@
 import typing
 
-import kubernetes.client
+from kubernetes.client.api_client import ApiClient
+from kubernetes.client.models.v1_api_resource_list import V1APIResourceList
+from kubernetes.client.models.v1_delete_options import V1DeleteOptions
+from kubernetes.client.models.v1_status import V1Status
+from kubernetes.client.models.v2beta2_horizontal_pod_autoscaler import \
+    V2beta2HorizontalPodAutoscaler
+from kubernetes.client.models.v2beta2_horizontal_pod_autoscaler_list import \
+    V2beta2HorizontalPodAutoscalerList
 
 class AutoscalingV2beta2Api:
-    def __init__(
-        self, api_client: typing.Optional[kubernetes.client.ApiClient] = ...
-    ) -> None: ...
-    def get_api_resources(self) -> kubernetes.client.V1APIResourceList: ...
+    def __init__(self, api_client: typing.Optional[ApiClient] = ...) -> None: ...
+    def get_api_resources(self) -> V1APIResourceList: ...
     def list_horizontal_pod_autoscaler_for_all_namespaces(
         self,
         *,
@@ -19,7 +24,7 @@ class AutoscalingV2beta2Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2beta2HorizontalPodAutoscalerList: ...
+    ) -> V2beta2HorizontalPodAutoscalerList: ...
     def list_namespaced_horizontal_pod_autoscaler(
         self,
         namespace: str,
@@ -33,22 +38,22 @@ class AutoscalingV2beta2Api:
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...,
         watch: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2beta2HorizontalPodAutoscalerList: ...
+    ) -> V2beta2HorizontalPodAutoscalerList: ...
     def create_namespaced_horizontal_pod_autoscaler(
         self,
         namespace: str,
-        body: kubernetes.client.V2beta2HorizontalPodAutoscaler,
+        body: V2beta2HorizontalPodAutoscaler,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V2beta2HorizontalPodAutoscaler: ...
+    ) -> V2beta2HorizontalPodAutoscaler: ...
     def delete_collection_namespaced_horizontal_pod_autoscaler(
         self,
         namespace: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         _continue: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_selector: typing.Optional[str] = ...,
@@ -59,7 +64,7 @@ class AutoscalingV2beta2Api:
         propagation_policy: typing.Optional[str] = ...,
         resource_version: typing.Optional[str] = ...,
         timeout_seconds: typing.Optional[int] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def read_namespaced_horizontal_pod_autoscaler(
         self,
         name: str,
@@ -68,29 +73,29 @@ class AutoscalingV2beta2Api:
         pretty: typing.Optional[str] = ...,
         exact: typing.Optional[bool] = ...,
         export: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2beta2HorizontalPodAutoscaler: ...
+    ) -> V2beta2HorizontalPodAutoscaler: ...
     def replace_namespaced_horizontal_pod_autoscaler(
         self,
         name: str,
         namespace: str,
-        body: kubernetes.client.V2beta2HorizontalPodAutoscaler,
+        body: V2beta2HorizontalPodAutoscaler,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V2beta2HorizontalPodAutoscaler: ...
+    ) -> V2beta2HorizontalPodAutoscaler: ...
     def delete_namespaced_horizontal_pod_autoscaler(
         self,
         name: str,
         namespace: str,
         *,
         pretty: typing.Optional[str] = ...,
-        body: typing.Optional[kubernetes.client.V1DeleteOptions] = ...,
+        body: typing.Optional[V1DeleteOptions] = ...,
         dry_run: typing.Optional[str] = ...,
         grace_period_seconds: typing.Optional[int] = ...,
         orphan_dependents: typing.Optional[bool] = ...,
         propagation_policy: typing.Optional[str] = ...
-    ) -> kubernetes.client.V1Status: ...
+    ) -> V1Status: ...
     def patch_namespaced_horizontal_pod_autoscaler(
         self,
         name: str,
@@ -101,20 +106,20 @@ class AutoscalingV2beta2Api:
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...,
         force: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2beta2HorizontalPodAutoscaler: ...
+    ) -> V2beta2HorizontalPodAutoscaler: ...
     def read_namespaced_horizontal_pod_autoscaler_status(
         self, name: str, namespace: str, *, pretty: typing.Optional[str] = ...
-    ) -> kubernetes.client.V2beta2HorizontalPodAutoscaler: ...
+    ) -> V2beta2HorizontalPodAutoscaler: ...
     def replace_namespaced_horizontal_pod_autoscaler_status(
         self,
         name: str,
         namespace: str,
-        body: kubernetes.client.V2beta2HorizontalPodAutoscaler,
+        body: V2beta2HorizontalPodAutoscaler,
         *,
         pretty: typing.Optional[str] = ...,
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...
-    ) -> kubernetes.client.V2beta2HorizontalPodAutoscaler: ...
+    ) -> V2beta2HorizontalPodAutoscaler: ...
     def patch_namespaced_horizontal_pod_autoscaler_status(
         self,
         name: str,
@@ -125,4 +130,4 @@ class AutoscalingV2beta2Api:
         dry_run: typing.Optional[str] = ...,
         field_manager: typing.Optional[str] = ...,
         force: typing.Optional[bool] = ...
-    ) -> kubernetes.client.V2beta2HorizontalPodAutoscaler: ...
+    ) -> V2beta2HorizontalPodAutoscaler: ...

@@ -1,14 +1,13 @@
 import datetime
 import typing
 
-import kubernetes.client
+from kubernetes.client.models.v1_persistent_volume_claim_condition import (
+    V1PersistentVolumeClaimCondition, V1PersistentVolumeClaimConditionDict)
 
 class V1PersistentVolumeClaimStatus:
     access_modes: typing.Optional[typing.List[str]]
     capacity: typing.Optional[typing.Dict[str, str]]
-    conditions: typing.Optional[
-        typing.List[kubernetes.client.V1PersistentVolumeClaimCondition]
-    ]
+    conditions: typing.Optional[typing.List[V1PersistentVolumeClaimCondition]]
     phase: typing.Optional[str]
     def __init__(
         self,
@@ -16,7 +15,7 @@ class V1PersistentVolumeClaimStatus:
         access_modes: typing.Optional[typing.List[str]] = ...,
         capacity: typing.Optional[typing.Dict[str, str]] = ...,
         conditions: typing.Optional[
-            typing.List[kubernetes.client.V1PersistentVolumeClaimCondition]
+            typing.List[V1PersistentVolumeClaimCondition]
         ] = ...,
         phase: typing.Optional[str] = ...
     ) -> None: ...
@@ -25,7 +24,5 @@ class V1PersistentVolumeClaimStatus:
 class V1PersistentVolumeClaimStatusDict(typing.TypedDict, total=False):
     accessModes: typing.Optional[typing.List[str]]
     capacity: typing.Optional[typing.Dict[str, str]]
-    conditions: typing.Optional[
-        typing.List[kubernetes.client.V1PersistentVolumeClaimConditionDict]
-    ]
+    conditions: typing.Optional[typing.List[V1PersistentVolumeClaimConditionDict]]
     phase: typing.Optional[str]

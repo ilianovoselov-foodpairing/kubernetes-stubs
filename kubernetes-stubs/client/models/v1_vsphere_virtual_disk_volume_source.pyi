@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1VsphereVirtualDiskVolumeSource:
     fs_type: typing.Optional[str]
     storage_policy_id: typing.Optional[str]

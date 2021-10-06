@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V2beta1CrossVersionObjectReference:
     api_version: typing.Optional[str]
     kind: str

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ConfigMapKeySelector:
     key: str
     name: typing.Optional[str]

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1VolumeMount:
     mount_path: str
     mount_propagation: typing.Optional[str]

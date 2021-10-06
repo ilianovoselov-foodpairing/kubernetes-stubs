@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V2beta2MetricTarget:
     average_utilization: typing.Optional[int]
     average_value: typing.Optional[str]

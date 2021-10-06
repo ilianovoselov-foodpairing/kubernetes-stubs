@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1CustomResourceSubresourceScale:
     label_selector_path: typing.Optional[str]
     spec_replicas_path: str

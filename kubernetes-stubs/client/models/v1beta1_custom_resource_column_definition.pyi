@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1beta1CustomResourceColumnDefinition:
     json_path: str
     description: typing.Optional[str]

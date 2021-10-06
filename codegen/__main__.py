@@ -48,54 +48,69 @@ def make_file_name(s: str):
     return "_".join(inflection.underscore(s) for s in s.split("."))
 
 
-def make_type_name(
-    config: Dict[str, Any], is_optional: bool, use_dict: bool = False
-) -> str:
-    def inner():
-        ty = config.get("type")
-        if not ty and "schema" in config:
-            ty = config["schema"].get("type")
-        if ty:
-            if ty == "boolean":
-                return "bool"
-            elif ty == "string":
-                if config.get("format") == "date-time":
-                    return "datetime.datetime"
-                else:
-                    return "str"
-            elif ty == "integer":
-                return "int"
-            elif ty == "number":
-                return "float"
-            elif ty == "array":
-                item_ty = make_type_name(
-                    config["items"], is_optional=False, use_dict=use_dict
-                )
-                return f"typing.List[{item_ty}]"
-            elif ty == "object":
-                if "additionalProperties" in config:
-                    val_ty = make_type_name(
-                        config["additionalProperties"],
-                        is_optional=False,
-                        use_dict=use_dict,
+class TypeReferrer:
+    def __init__(self):
+        self._imports = collections.defaultdict(set)
+
+    def write_imports(self, buf: CodegenBuf) -> None:
+        for module, items in sorted(self._imports.items()):
+            items_str = ", ".join(sorted(items))
+            buf.writeln(f"from {module} import {items_str}")
+
+    def merge(self, other: "TypeReferrer") -> None:
+        for module, items in other._imports.items():
+            self._imports[module].update(items)
+
+    def make_type_name(
+        self, config: Dict[str, Any], is_optional: bool, use_dict: bool = False
+    ) -> str:
+        def inner():
+            ty = config.get("type")
+            if not ty and "schema" in config:
+                ty = config["schema"].get("type")
+            if ty:
+                if ty == "boolean":
+                    return "bool"
+                elif ty == "string":
+                    if config.get("format") == "date-time":
+                        return "datetime.datetime"
+                    else:
+                        return "str"
+                elif ty == "integer":
+                    return "int"
+                elif ty == "number":
+                    return "float"
+                elif ty == "array":
+                    item_ty = self.make_type_name(
+                        config["items"], is_optional=False, use_dict=use_dict
                     )
-                    return f"typing.Dict[str, {val_ty}]"
+                    return f"typing.List[{item_ty}]"
+                elif ty == "object":
+                    if "additionalProperties" in config:
+                        val_ty = self.make_type_name(
+                            config["additionalProperties"],
+                            is_optional=False,
+                            use_dict=use_dict,
+                        )
+                        return f"typing.Dict[str, {val_ty}]"
+                    else:
+                        return "typing.Any"
                 else:
-                    return "typing.Any"
-            else:
-                assert "unknown type"
+                    assert "unknown type"
 
-        ref = config.get("$ref") or config["schema"]["$ref"]
-        assert ref.startswith("#/definitions/")
-        ref = ref[len("#/definitions/") :]
-        out = "kubernetes.client." + make_class_name(ref)
-        if use_dict:
-            out += "Dict"
-        return out
+            ref = config.get("$ref") or config["schema"]["$ref"]
+            assert ref.startswith("#/definitions/")
+            ref = ref[len("#/definitions/") :]
+            module = "kubernetes.client.models." + make_file_name(ref)
+            out = make_class_name(ref)
+            if use_dict:
+                out += "Dict"
+            self._imports[module].add(out)
+            return out
 
-    if is_optional:
-        return f"typing.Optional[{inner()}]"
-    return inner()
+        if is_optional:
+            return f"typing.Optional[{inner()}]"
+        return inner()
 
 
 def make_property_name(s: str, underscored: bool = True):
@@ -153,26 +168,29 @@ for name, config in schema["definitions"].items():
     required = config.get("required", [])
     props: List[Property] = []
     dict_props: List[Property] = []
+    type_referrer = TypeReferrer()
     for name, config in config["properties"].items():
         is_optional = name not in required
         props.append(
             Property(
                 name=make_property_name(name),
-                ty=make_type_name(config, is_optional=is_optional),
+                ty=type_referrer.make_type_name(config, is_optional=is_optional),
                 is_optional=is_optional,
             )
         )
         dict_props.append(
             Property(
                 name=make_property_name(name, underscored=False),
-                ty=make_type_name(config, is_optional=is_optional, use_dict=True),
+                ty=type_referrer.make_type_name(
+                    config, is_optional=is_optional, use_dict=True
+                ),
                 is_optional=is_optional,
             )
         )
     buf = CodegenBuf(MODELS_STUBS_DIR / (file_name + ".pyi"))
     buf.writeln("import datetime")
-    buf.writeln("import kubernetes.client")
     buf.writeln("import typing")
+    type_referrer.write_imports(buf)
     buf.writeln()
     buf.start_block(f"class {class_name}")
     for prop in props:
@@ -214,23 +232,18 @@ for name, config in schema["paths"].items():
         for tag in op.get("tags", []):
             apis[tag].append(op)
 managers: DefaultDict[Manager, List[ManagerOp]] = collections.defaultdict(list)
-for name, api in apis.items():
-    class_name = make_class_name(name)
-    buf = CodegenBuf(API_STUBS_DIR / f"{name}_api.pyi")
-    buf.writeln("import kubernetes.client")
-    buf.writeln("import typing")
-    buf.writeln()
-    buf.start_block(f"class {class_name}Api")
-    buf.start_block(
-        f"def __init__(self, api_client: typing.Optional[kubernetes.client.ApiClient] = ...) -> None"
-    )
-    buf.writeln("...")
-    buf.end_block()
+managers_type_referrer = TypeReferrer()
+for api_name, api in apis.items():
+    class_name = make_class_name(api_name)
+    type_referrer = TypeReferrer()
+    definitions = []
     for op in api:
         name = inflection.underscore(op["operationId"])
         responses = op["responses"]
         if "200" in responses:
-            return_ty = make_type_name(responses["200"]["schema"], is_optional=False)
+            return_ty = type_referrer.make_type_name(
+                responses["200"]["schema"], is_optional=False
+            )
         else:
             return_ty = "None"
         params: List[Property] = []
@@ -244,7 +257,7 @@ for name, api in apis.items():
             params.append(
                 Property(
                     name=make_property_name(param_name),
-                    ty=make_type_name(param, is_optional=is_optional),
+                    ty=type_referrer.make_type_name(param, is_optional=is_optional),
                     is_optional=is_optional,
                 )
             )
@@ -284,10 +297,28 @@ for name, api in apis.items():
                 return_ty=return_ty,
             )
             managers[manager].append(manager_op)
-        buf.start_block(f"def {name}(self{params_str}) -> {return_ty}")
+        definitions.append(f"def {name}(self{params_str}) -> {return_ty}")
+
+    buf = CodegenBuf(API_STUBS_DIR / f"{api_name}_api.pyi")
+    buf.writeln("import typing")
+    buf.writeln("from kubernetes.client.api_client import ApiClient")
+    type_referrer.write_imports(buf)
+    buf.writeln()
+    buf.start_block(f"class {class_name}Api")
+    buf.start_block(
+        f"def __init__(self, api_client: typing.Optional[ApiClient] = ...) -> None"
+    )
+    buf.writeln("...")
+    buf.end_block()
+
+    for definition in definitions:
+        buf.start_block(definition)
         buf.writeln("...")
         buf.end_block()
+
     buf.end_block()
+
+    managers_type_referrer.merge(type_referrer)
 
 # `kubernetes.client.api` root.
 buf = CodegenBuf(API_STUBS_DIR / "__init__.pyi")
@@ -317,6 +348,7 @@ CodegenBuf(STUBS_DIR / "__init__.pyi")
 buf = CodegenBuf(EXT_DIR / "__init__.py")
 buf.writeln("import kubernetes.client")
 buf.writeln("import typing")
+managers_type_referrer.write_imports(buf)
 for manager, ops in managers.items():
     buf.start_block(f"class {manager.name}Manager")
     buf.start_block(

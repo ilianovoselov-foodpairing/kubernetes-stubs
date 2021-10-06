@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1beta1ResourceAttributes:
     group: typing.Optional[str]
     name: typing.Optional[str]

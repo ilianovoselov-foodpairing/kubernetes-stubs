@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1OwnerReference:
     api_version: str
     block_owner_deletion: typing.Optional[bool]

@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V2beta1HorizontalPodAutoscalerCondition:
     last_transition_time: typing.Optional[datetime.datetime]
     message: typing.Optional[str]

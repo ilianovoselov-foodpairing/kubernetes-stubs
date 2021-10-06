@@ -1,8 +1,6 @@
 import datetime
 import typing
 
-import kubernetes.client
-
 class V1ContainerStateTerminated:
     container_id: typing.Optional[str]
     exit_code: int

@@ -1,6 +1,6 @@
 from typing import Any, Optional, Protocol, Type, TypeVar
 
-from kubernetes.client import Configuration
+from kubernetes.client.configuration import Configuration
 
 _T = TypeVar("_T")
 
