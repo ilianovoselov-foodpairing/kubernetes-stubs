@@ -4,7 +4,7 @@ import keyword
 import shutil
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, DefaultDict, Dict, List
 
 import inflection
 
@@ -49,7 +49,7 @@ def make_file_name(s: str):
 
 
 def make_type_name(
-    config: dict[str, Any], is_optional: bool, use_dict: bool = False
+    config: Dict[str, Any], is_optional: bool, use_dict: bool = False
 ) -> str:
     def inner():
         ty = config.get("type")
@@ -87,7 +87,7 @@ def make_type_name(
 
         ref = config.get("$ref") or config["schema"]["$ref"]
         assert ref.startswith("#/definitions/")
-        ref = ref.removeprefix("#/definitions/")
+        ref = ref[len("#/definitions/") :]
         out = "kubernetes.client." + make_class_name(ref)
         if use_dict:
             out += "Dict"
@@ -141,8 +141,8 @@ class Manager:
 class ManagerOp:
     name: str
     api_name: str
-    required_params: list[Property]
-    optional_params: list[Property]
+    required_params: List[Property]
+    optional_params: List[Property]
     return_ty: str
 
 
@@ -151,8 +151,8 @@ for name, config in schema["definitions"].items():
     class_name = make_class_name(name)
     file_name = make_file_name(name)
     required = config.get("required", [])
-    props: list[Property] = []
-    dict_props: list[Property] = []
+    props: List[Property] = []
+    dict_props: List[Property] = []
     for name, config in config["properties"].items():
         is_optional = name not in required
         props.append(
@@ -202,7 +202,7 @@ for name in schema["definitions"]:
     )
 
 # `kubernetes.client.api` modules.
-apis: collections.defaultdict[str, Any] = collections.defaultdict(list)
+apis: DefaultDict[str, Any] = collections.defaultdict(list)
 for name, config in schema["paths"].items():
     for method in ["get", "put", "post", "delete", "options", "head", "patch"]:
         if method not in config:
@@ -213,9 +213,7 @@ for name, config in schema["paths"].items():
         op["path"] = name
         for tag in op.get("tags", []):
             apis[tag].append(op)
-managers: collections.defaultdict[Manager, list[ManagerOp]] = collections.defaultdict(
-    list
-)
+managers: DefaultDict[Manager, List[ManagerOp]] = collections.defaultdict(list)
 for name, api in apis.items():
     class_name = make_class_name(name)
     buf = CodegenBuf(API_STUBS_DIR / f"{name}_api.pyi")
@@ -235,7 +233,7 @@ for name, api in apis.items():
             return_ty = make_type_name(responses["200"]["schema"], is_optional=False)
         else:
             return_ty = "None"
-        params: list[Property] = []
+        params: List[Property] = []
         for param in op.get("parameters", []):
             is_optional = not param.get("required", False)
             param_name = param["name"]
